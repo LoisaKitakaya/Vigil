@@ -25,3 +25,7 @@ class UserAddress(models.Model):
     class Meta:
 
         db_table = "User Addresses"
+
+    def __str__(self) -> str:
+        
+        return f'User: {self.user}. City: {self.city}. Address: {self.address_one}. Phone: {self.primary_phone}'
