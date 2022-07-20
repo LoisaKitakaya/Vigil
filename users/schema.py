@@ -1,7 +1,7 @@
 import graphene
 import graphql_jwt
 from graphene_django import DjangoObjectType
-from .models import User, UserAddress
+from .models import User
 
 # Your schema here
 class UserObject(DjangoObjectType):
@@ -9,14 +9,6 @@ class UserObject(DjangoObjectType):
     class Meta:
 
         model = User
-
-        fields = '__all__'
-
-class UserAddressObject(DjangoObjectType):
-
-    class Meta:
-
-        model = UserAddress
 
         fields = '__all__'
 
@@ -34,13 +26,26 @@ class UserMutation(graphene.Mutation):
     user = graphene.Field(UserObject)
 
     @classmethod
-    def mutate(cls, root, info, username, email, firstname, secondname, password1, password2):
+    def mutate(
+        cls, root, info, 
+        username, 
+        email, 
+        firstname, 
+        secondname, 
+        password1, 
+        password2
+        ):
 
         if not User.objects.filter(email=email).exists():
 
             if password1 == password2:
 
-                user = User.objects.create(username=username, email=email, first_name=firstname, last_name=secondname)
+                user = User.objects.create(
+                    username=username, 
+                    email=email, 
+                    first_name=firstname, 
+                    last_name=secondname
+                    )
 
             else:
 

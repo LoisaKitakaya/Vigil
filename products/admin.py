@@ -25,6 +25,7 @@ class ProductInventoryAdminView(admin.ModelAdmin):
     model = ProductInventory
 
     list_display = (
+        'product',
         'quantity',
     )
 
@@ -42,7 +43,6 @@ class ProductAdminView(admin.ModelAdmin):
         'name',
         'price',
         'product_category',
-        'product_inventory',
     )
 
     list_filter = (
