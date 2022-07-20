@@ -1,11 +1,24 @@
 import graphene
+import users.schema as users_schema
 
 # Your schema here
-class Query(graphene.ObjectType):
+class Query(
+    # custom Queries
+    users_schema.Query,
+
+    # graphene object type
+    graphene.ObjectType
+    ):
 
     pass
 
-class Mutation(graphene.ObjectType):
+class Mutation(
+    # custom Queries
+    users_schema.Mutation,
+
+    # graphene object type 
+    graphene.ObjectType
+    ):
 
     pass
 

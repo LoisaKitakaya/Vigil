@@ -49,3 +49,5 @@ class ProductAdminView(admin.ModelAdmin):
         'created_date',
         'updated_date',
     )
+
+    prepopulated_fields = {"slug": ("name",)}
