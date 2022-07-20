@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # my apps
     'users',
     'products',
+
+    # 3rd party apps
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom user model
 
 AUTH_USER_MODEL = 'users.User'
+
+# graphene-django settings
+
+GRAPHENE = {
+    "SCHEMA": "vigil_backend.schema.schema"
+}
