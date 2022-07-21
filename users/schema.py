@@ -120,11 +120,4 @@ class Mutation(graphene.ObjectType):
     # custom mutations
     register_user = UserMutation.Field()
     add_address = AddressMutation.Field()
-
-class Query(graphene.ObjectType):
-
-    all_users = graphene.List(UserObject)
-
-    def resolve_all_users(root, info):
-
-        return User.objects.all()
+    

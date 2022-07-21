@@ -1,10 +1,11 @@
 import graphene
 import users.schema as users_schema
+import products.schema as products_schema
 
 # Your schema here
 class Query(
     # custom Queries
-    users_schema.Query,
+    products_schema.Query,
 
     # graphene object type
     graphene.ObjectType
