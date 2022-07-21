@@ -1,23 +1,24 @@
 from django.db import models
 
 # Create your models here.
+"""
+class ProductDiscount(models.Model):
 
-# class ProductDiscount(models.Model):
+    name = models.CharField(max_length=254, blank=False, verbose_name="discount name")
+    discount_percent = models.FloatField(default=0.0, verbose_name="discount percentage")
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
 
-#     name = models.CharField(max_length=254, blank=False, verbose_name="discount name")
-#     discount_percent = models.FloatField(default=0.0, verbose_name="discount percentage")
-#     created_date = models.DateTimeField(auto_now_add=True)
-#     updated_date = models.DateTimeField(auto_now=True)
+    class Meta:
 
-#     class Meta:
+        ordering = ['created_date']
 
-#         ordering = ['created_date']
+        db_table = "Products Discount"
 
-#         db_table = "Products Discount"
-
-#     def __str__(self) -> str:
+    def __str__(self) -> str:
         
-#         return f'Sale: {self.name}. Discount: {self.discount_percent}.'
+        return f'Sale: {self.name}. Discount: {self.discount_percent}.'
+"""
 
 class ProductCategory(models.Model):
 
