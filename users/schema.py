@@ -1,7 +1,7 @@
 import graphene
 import graphql_jwt
 from graphene_django import DjangoObjectType
-from .models import User
+from .models import User, Address
 
 # Your schema here
 class UserObject(DjangoObjectType):
@@ -9,6 +9,14 @@ class UserObject(DjangoObjectType):
     class Meta:
 
         model = User
+
+        fields = '__all__'
+
+class AddressObject(DjangoObjectType):
+
+    class Meta:
+
+        model = Address
 
         fields = '__all__'
 
@@ -63,6 +71,44 @@ class UserMutation(graphene.Mutation):
 
         return UserMutation(user=user)
 
+class AddressMutation(graphene.Mutation):
+
+    class Arguments:
+
+        city = graphene.String(required=True)
+        address = graphene.String(required=True)
+        phone_one = graphene.String(required=True)
+        phone_two = graphene.String(required=True)
+
+    user_address = graphene.Field(AddressObject)
+
+    @classmethod
+    def mutate(
+        cls, root, info,
+        city,
+        address,
+        phone_one,
+        phone_two
+    ):
+
+        user = info.context.user
+
+        if not user.is_authenticated:
+
+            raise Exception("Authentication credentials were not provided")
+
+        else:
+
+            user_address = Address.objects.create(
+                user=user,
+                city=city,
+                address=address,
+                phone_one=phone_one,
+                phone_two=phone_two
+            )
+
+        return AddressMutation(user_address=user_address)
+
 class Mutation(graphene.ObjectType):
 
     # jwt mutations
@@ -73,13 +119,12 @@ class Mutation(graphene.ObjectType):
 
     # custom mutations
     register_user = UserMutation.Field()
+    add_address = AddressMutation.Field()
 
 class Query(graphene.ObjectType):
 
     all_users = graphene.List(UserObject)
 
     def resolve_all_users(root, info):
-
-        print(info.context.user)
 
         return User.objects.all()
