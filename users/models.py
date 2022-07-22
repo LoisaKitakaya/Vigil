@@ -12,19 +12,3 @@ class User(AbstractUser):
     class Meta:
 
         db_table = "App Users"
-
-class Address(models.Model):
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    city = models.CharField(max_length=254, blank=False, verbose_name="city of residence")
-    address = models.CharField(max_length=254, blank=False, verbose_name="address 1")
-    phone_one = models.CharField(max_length=254, blank=False, verbose_name="primary phone")
-    phone_two = models.CharField(max_length=254, blank=False, verbose_name="secondary phone")
-
-    class Meta:
-
-        db_table = "User Addresses"
-
-    def __str__(self) -> str:
-        
-        return f'User: {self.user}. City: {self.city}. Address: {self.address}. Phone: {self.phone_one}.'

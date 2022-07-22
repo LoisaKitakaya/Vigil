@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # my apps
     'users',
     'products',
+    'orders',
 
     # 3rd party apps
     'graphene_django',
