@@ -33,6 +33,8 @@ class Query(graphene.ObjectType):
     all_categories = graphene.List(ProductCategoryObject)
     all_inventory = graphene.List(ProductInventoryObject)
 
+    home_products = graphene.List(ProductObject, limit=graphene.Int(required=True))
+
     single_product = graphene.Field(ProductObject, slug=graphene.String(required=True))
     single_category = graphene.List(ProductObject, slug=graphene.String(required=True))
 
@@ -48,6 +50,10 @@ class Query(graphene.ObjectType):
     def resolve_all_inventory(root, info):
 
         return ProductInventory.objects.all()
+
+    def resolve_home_products(root, info, limit):
+
+        return Product.objects.all()[:limit]
 
     def resolve_single_product(root, info, slug):
 
