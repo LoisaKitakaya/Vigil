@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductCategory, ProductInventory, Product
+from .models import ProductCategory, ProductInventory, ProductReview, Product
 
 # Register your models here.
 @admin.register(ProductCategory)
@@ -27,6 +27,22 @@ class ProductInventoryAdminView(admin.ModelAdmin):
     list_display = (
         'product',
         'quantity',
+    )
+
+    list_filter = (
+        'created_date',
+        'updated_date',
+    )
+
+@admin.register(ProductReview)
+class ProductReviewAdminView(admin.ModelAdmin):
+
+    model = ProductReview
+
+    list_display = (
+        'name',
+        'rating',
+        'review',
     )
 
     list_filter = (

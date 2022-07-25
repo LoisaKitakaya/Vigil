@@ -1,24 +1,23 @@
 from django.db import models
 
 # Create your models here.
-"""
-class ProductDiscount(models.Model):
+class ProductReview(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="discount name")
-    discount_percent = models.FloatField(default=0.0, verbose_name="discount percentage")
+    name = models.CharField(max_length=254, blank=False, verbose_name="item name")
+    rating = models.IntegerField(default=0, blank=False, verbose_name="item rating")
+    review = models.TextField(verbose_name="item review")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
 
-        ordering = ['created_date']
+        ordering = ["created_date"]
 
-        db_table = "Products Discount"
+        db_table = "Products Reviews"
 
     def __str__(self) -> str:
         
-        return f'Sale: {self.name}. Discount: {self.discount_percent}.'
-"""
+        return f'Item: {self.name}. Rating: {self.rating}.'
 
 class ProductCategory(models.Model):
 
@@ -45,10 +44,12 @@ class Product(models.Model):
     price = models.IntegerField(default=0, verbose_name="product price")
     thumbnail = models.URLField(max_length=254, blank=False, verbose_name="product thumbnail")
     description = models.TextField(verbose_name="describe the product")
+    specifications = models.TextField(verbose_name="specifications of the product")
     slide_one = models.URLField(max_length=254, blank=False, verbose_name="product slide 1")
     slide_two = models.URLField(max_length=254, blank=False, verbose_name="product slide 2")
     slide_three = models.URLField(max_length=254, blank=False, verbose_name="product slide 3")
     product_category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    product_review = models.ManyToManyField(ProductReview)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
