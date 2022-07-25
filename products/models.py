@@ -1,8 +1,10 @@
 from django.db import models
+from users.models import User
 
 # Create your models here.
 class ProductReview(models.Model):
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=254, blank=False, verbose_name="item name")
     rating = models.IntegerField(default=0, blank=False, verbose_name="item rating")
     review = models.TextField(verbose_name="item review")
