@@ -41,9 +41,9 @@ class ProductCategory(models.Model):
 
 class ProductBrand(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="category name")
-    slug = models.SlugField(max_length=254, blank=False, verbose_name="category slug")
-    description = models.TextField(verbose_name="describe the category")
+    name = models.CharField(max_length=254, blank=False, verbose_name="brand name")
+    slug = models.SlugField(max_length=254, blank=False, verbose_name="brand slug")
+    description = models.TextField(verbose_name="describe the brand")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 

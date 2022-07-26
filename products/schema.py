@@ -46,21 +46,17 @@ class ProductBrandObject(DjangoObjectType):
 class Query(graphene.ObjectType):
 
     all_products = graphene.List(ProductObject)
-    all_categories = graphene.List(ProductCategoryObject)
 
     home_products = graphene.List(ProductObject, limit=graphene.Int(required=True))
 
     single_product = graphene.Field(ProductObject, slug=graphene.String(required=True))
     single_category = graphene.List(ProductObject, slug=graphene.String(required=True))
+    single_brand = graphene.List(ProductBrandObject, slug=graphene.String(required=True))
 
     # resolving queries
     def resolve_all_products(root, info):
 
         return Product.objects.all()
-
-    def resolve_all_categories(root, info):
-
-        return ProductCategory.objects.all()
 
     def resolve_home_products(root, info, limit):
 
@@ -73,3 +69,7 @@ class Query(graphene.ObjectType):
     def resolve_single_category(root, info, slug):
 
         return Product.objects.filter(product_category__slug=slug)
+
+    def resolve_single_brand(root, info, slug):
+
+        return Product.object.filter(product_brand__slug=slug)
