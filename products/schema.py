@@ -1,6 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from .models import Product, ProductCategory, ProductInventory, ProductReview
+from .models import Product, ProductCategory, ProductInventory, ProductReview, ProductBrand
 
 # Your schema here
 class ProductObject(DjangoObjectType):
@@ -32,6 +32,14 @@ class ProductReviewObject(DjangoObjectType):
     class Meta:
 
         model = ProductReview
+
+        fields = '__all__'
+
+class ProductBrandObject(DjangoObjectType):
+
+    class Meta:
+
+        model = ProductBrand
 
         fields = '__all__'
 
