@@ -51,7 +51,7 @@ class Query(graphene.ObjectType):
 
     single_product = graphene.Field(ProductObject, slug=graphene.String(required=True))
     single_category = graphene.List(ProductObject, slug=graphene.String(required=True))
-    single_brand = graphene.List(ProductBrandObject, slug=graphene.String(required=True))
+    single_brand = graphene.List(ProductObject, slug=graphene.String(required=True))
 
     # resolving queries
     def resolve_all_products(root, info):
@@ -72,4 +72,4 @@ class Query(graphene.ObjectType):
 
     def resolve_single_brand(root, info, slug):
 
-        return Product.object.filter(product_brand__slug=slug)
+        return Product.objects.filter(product_brand__slug=slug)
