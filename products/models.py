@@ -62,7 +62,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254, blank=False, verbose_name="product name")
     full_name = models.CharField(max_length=254, blank=False, verbose_name="product full name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="product slug")
-    price = models.IntegerField(default=0, verbose_name="product price")
+    price = models.FloatField(default=0, verbose_name="product price")
     thumbnail = models.URLField(max_length=254, blank=False, verbose_name="product thumbnail")
     description = models.TextField(verbose_name="describe the product")
     specifications = models.TextField(verbose_name="specifications of the product")
