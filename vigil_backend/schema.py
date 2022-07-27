@@ -16,6 +16,7 @@ class Query(
 class Mutation(
     # custom Queries
     users_schema.Mutation,
+    products_schema.Mutation,
 
     # graphene object type 
     graphene.ObjectType

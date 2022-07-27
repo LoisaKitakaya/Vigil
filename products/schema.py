@@ -43,6 +43,43 @@ class ProductBrandObject(DjangoObjectType):
 
         fields = '__all__'
 
+class ProductReviewMutation(graphene.Mutation):
+
+    class Arguments:
+
+        item_name = graphene.String(required=True)
+        item_rating = graphene.Int(required=True)
+        item_review = graphene.String(required=True)
+
+    review = graphene.Field(ProductReviewObject)
+
+    @classmethod
+    def mutate(
+        cls, root, info,
+        item_name,
+        item_rating,
+        item_review
+    ):
+
+        user = info.context.user
+
+        if not user.is_authenticated:
+
+            raise Exception("Authentication credentials were not provided")
+
+        product = Product.objects.get(name=item_name)
+
+        review = ProductReview.objects.create(
+            user=user,
+            name=item_name,
+            rating=item_rating,
+            review=item_review
+        )
+
+        product.product_review.add(review)
+
+        return ProductReviewMutation(review=review)
+
 class Query(graphene.ObjectType):
 
     all_products = graphene.List(ProductObject)
@@ -73,3 +110,7 @@ class Query(graphene.ObjectType):
     def resolve_single_brand(root, info, slug):
 
         return Product.objects.filter(product_brand__slug=slug)
+
+class Mutation(graphene.ObjectType):
+
+    add_review = ProductReviewMutation.Field()
