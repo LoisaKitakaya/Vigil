@@ -27,6 +27,7 @@ class OrderAdminView(admin.ModelAdmin):
         'order_uic',
         'total',
         'approved',
+        'shipped',
     )
 
     list_filter = (

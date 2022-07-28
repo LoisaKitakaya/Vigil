@@ -19,7 +19,7 @@ class ProductReview(models.Model):
 
     def __str__(self) -> str:
         
-        return f'Item: {self.name}. Rating: {self.rating}.'
+        return self.name
 
 class ProductCategory(models.Model):
 
@@ -37,7 +37,7 @@ class ProductCategory(models.Model):
 
     def __str__(self) -> str:
         
-        return f'Category: {self.name}.'
+        return self.name
 
 class ProductBrand(models.Model):
 
@@ -55,7 +55,7 @@ class ProductBrand(models.Model):
 
     def __str__(self) -> str:
         
-        return f'Brand: {self.name}.'
+        return self.name
 
 class Product(models.Model):
 
@@ -77,13 +77,13 @@ class Product(models.Model):
 
     class Meta:
 
-        ordering = ['created_date']
+        ordering = ['-created_date']
 
         db_table = "Products Table"
 
     def __str__(self) -> str:
         
-        return f'Product: {self.name}. Price: {self.price}.'
+        return self.name
 
 class ProductInventory(models.Model):
 
@@ -100,4 +100,4 @@ class ProductInventory(models.Model):
 
     def __str__(self) -> str:
         
-        return f'Stock quantity: {self.quantity}.'
+        return self.quantity

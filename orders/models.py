@@ -13,13 +13,13 @@ class CartItem(models.Model):
 
     class Meta:
 
-        ordering = ['created_date']
+        ordering = ['-created_date']
 
         db_table = "Cart Items"
 
     def __str__(self) -> str:
         
-        return f'Product: {self.name}. Price: {self.price}.'
+        return self.name
 
 class Order(models.Model):
 
@@ -38,11 +38,11 @@ class Order(models.Model):
 
     class Meta:
 
-        ordering = ['created_date']
+        ordering = ['-created_date']
 
         db_table = "Order Table"
 
     def __str__(self) -> str:
         
-        return f'User: {self.user}. Order UIC: {self.order_uic}. Total: {self.total}. Approved: {self.approved}.'
+        return self.order_uic
 
