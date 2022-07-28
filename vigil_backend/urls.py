@@ -24,4 +24,4 @@ urlpatterns = [
 ]
 
 admin.site.site_header = 'Vigil Admin Panel'
-admin.site.site_title = 'Headless CMS - API Backend'
+admin.site.site_title = 'Vigil Surveillance API Backend & Headless CMS'
