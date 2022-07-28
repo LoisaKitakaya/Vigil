@@ -32,6 +32,7 @@ class Order(models.Model):
     item = models.ManyToManyField(CartItem)
     total = models.FloatField(default=0, blank=False, verbose_name="total payable")
     approved = models.BooleanField(default=False, verbose_name="approved for shipping")
+    shipped = models.BooleanField(default=False, verbose_name="has been shipping")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 

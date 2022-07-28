@@ -59,7 +59,7 @@ class ProductBrand(models.Model):
 
 class Product(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="product name")
+    name = models.CharField(max_length=254, blank=False, verbose_name="product name", unique=True)
     full_name = models.CharField(max_length=254, blank=False, verbose_name="product full name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="product slug")
     price = models.FloatField(default=0, verbose_name="product price")
