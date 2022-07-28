@@ -100,4 +100,4 @@ class ProductInventory(models.Model):
 
     def __str__(self) -> str:
         
-        return self.quantity
+        return str(self.quantity)
