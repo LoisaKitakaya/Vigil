@@ -13,7 +13,7 @@ class ProductReview(models.Model):
 
     class Meta:
 
-        ordering = ["created_date"]
+        ordering = ["-created_date"]
 
         db_table = "Products Reviews"
 

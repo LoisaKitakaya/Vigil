@@ -21,7 +21,7 @@ class CartItem(models.Model):
         
         return self.name
 
-class Order(models.Model):
+class DeliveryOrder(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="owner of order")
     city = models.CharField(max_length=254, blank=False, verbose_name="city of residence")
@@ -31,8 +31,8 @@ class Order(models.Model):
     order_uic = models.CharField(max_length=254, blank=False, verbose_name="order unique identification code")
     item = models.ManyToManyField(CartItem)
     total = models.FloatField(default=0, blank=False, verbose_name="total payable")
-    approved = models.BooleanField(default=False, verbose_name="approved for shipping")
-    shipped = models.BooleanField(default=False, verbose_name="has been shipping")
+    approved = models.BooleanField(default=False, verbose_name="approved for shipping (Paid)")
+    fulfilled = models.BooleanField(default=False, verbose_name="has been fulfilled (Delivered)")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
@@ -40,7 +40,31 @@ class Order(models.Model):
 
         ordering = ['-created_date']
 
-        db_table = "Order Table"
+        db_table = "Delivery Order Table"
+
+    def __str__(self) -> str:
+        
+        return self.order_uic
+
+class PickupOrder(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="owner of order")
+    personal_identification = models.CharField(max_length=254, blank=False, verbose_name="personal identification")
+    phone_one = models.CharField(max_length=254, blank=False, verbose_name="primary phone")
+    phone_two = models.CharField(max_length=254, blank=False, verbose_name="secondary phone")
+    order_uic = models.CharField(max_length=254, blank=False, verbose_name="order unique identification code")
+    item = models.ManyToManyField(CartItem)
+    total = models.FloatField(default=0, blank=False, verbose_name="total payable")
+    approved = models.BooleanField(default=False, verbose_name="approved for shipping (Paid)")
+    fulfilled = models.BooleanField(default=False, verbose_name="has been fulfilled (Delivered)")
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+
+        ordering = ['-created_date']
+
+        db_table = "Pickup Order Table"
 
     def __str__(self) -> str:
         

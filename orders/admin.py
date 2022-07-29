@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CartItem, Order
+from .models import CartItem, DeliveryOrder, PickupOrder
 
 # Register your models here.
 @admin.register(CartItem)
@@ -17,17 +17,34 @@ class CartItemAdminView(admin.ModelAdmin):
         'created_date',
     )
 
-@admin.register(Order)
-class OrderAdminView(admin.ModelAdmin):
+@admin.register(DeliveryOrder)
+class DeliveryOrderAdminView(admin.ModelAdmin):
 
-    model = Order
+    model = DeliveryOrder
 
     list_display = (
         'user',
         'order_uic',
         'total',
         'approved',
-        'shipped',
+        'fulfilled',
+    )
+
+    list_filter = (
+        'created_date',
+    )
+
+@admin.register(PickupOrder)
+class PickupOrderAdminView(admin.ModelAdmin):
+
+    model = PickupOrder
+
+    list_display = (
+        'user',
+        'order_uic',
+        'total',
+        'approved',
+        'fulfilled',
     )
 
     list_filter = (
