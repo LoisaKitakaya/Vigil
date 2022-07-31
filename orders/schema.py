@@ -65,20 +65,9 @@ class DeliveryMutation(graphene.Mutation):
 
         else:
 
-            N = 5
+            N = 10
 
-            res = ''.join(random.choices(string.ascii_uppercase +  string.digits, k = N)) 
-
-            count = 1
-
-            filler_cart_item = CartItem(
-                name="filler",
-                price=0,
-                thumbnail="filler",
-                quantity=0
-            )
-
-            filler_cart_item.save()
+            res = ''.join(random.choices(string.ascii_uppercase +  string.digits, k = N))
 
             order = DeliveryOrder.objects.create(
                 user=user,
@@ -86,14 +75,13 @@ class DeliveryMutation(graphene.Mutation):
                 address=address,
                 phone=phone,
                 order_uic=res,
-                item=filler_cart_item,
                 total=total,
             )
 
             for item in items:
 
                 cart_item = CartItem(
-                    city=item.city,
+                    name=item.name,
                     price=item.price,
                     thumbnail=item.thumbnail,
                     quantity=item.quantity
@@ -103,9 +91,9 @@ class DeliveryMutation(graphene.Mutation):
 
                 order.item.add(cart_item)
 
-            filler_cart_item.delete()
+            print(items)
 
-        return DeliveryMutation.Field(order=order)
+            return DeliveryMutation(order=order)
 
 class Mutation(graphene.ObjectType):
 
