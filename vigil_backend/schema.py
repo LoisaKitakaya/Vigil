@@ -3,6 +3,8 @@ import users.schema as users_schema
 import products.schema as products_schema
 import orders.schema as orders_schema
 
+# Graphene (code first) implementations. Soon to be discontinued
+
 # Your schema here
 class Query(
     # custom Queries
@@ -26,4 +28,13 @@ class Mutation(
 
     pass
 
-schema = graphene.Schema(mutation=Mutation, query=Query)
+# To resume with the graphene implementation
+
+# uncomment the code below.
+
+# schema = graphene.Schema(mutation=Mutation, query=Query)
+
+# Ariadne (schema first) implementation. API backend
+
+# Your schema here
+
