@@ -28,13 +28,4 @@ class Mutation(
 
     pass
 
-# To resume with the graphene implementation
-
-# uncomment the code below.
-
-# schema = graphene.Schema(mutation=Mutation, query=Query)
-
-# Ariadne (schema first) implementation. API backend
-
-# Your schema here
-
+schema = graphene.Schema(mutation=Mutation, query=Query)
