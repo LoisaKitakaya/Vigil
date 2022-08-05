@@ -5,7 +5,7 @@ from users.models import User
 class ProductReview(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=254, blank=False, verbose_name="item name")
+    item_name = models.CharField(max_length=254, blank=False, verbose_name="item name")
     rating = models.IntegerField(default=0, blank=False, verbose_name="item rating")
     review = models.TextField(verbose_name="item review")
     created_date = models.DateTimeField(auto_now_add=True)
@@ -23,7 +23,7 @@ class ProductReview(models.Model):
 
 class ProductCategory(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="category name")
+    category_name = models.CharField(max_length=254, blank=False, verbose_name="category name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="category slug")
     description = models.TextField(verbose_name="describe the category")
     created_date = models.DateTimeField(auto_now_add=True)
@@ -41,7 +41,7 @@ class ProductCategory(models.Model):
 
 class ProductBrand(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="brand name")
+    brand_name = models.CharField(max_length=254, blank=False, verbose_name="brand name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="brand slug")
     description = models.TextField(verbose_name="describe the brand")
     created_date = models.DateTimeField(auto_now_add=True)
@@ -59,7 +59,7 @@ class ProductBrand(models.Model):
 
 class Product(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="product name", unique=True)
+    product_name = models.CharField(max_length=254, blank=False, verbose_name="product name", unique=True)
     full_name = models.CharField(max_length=254, blank=False, verbose_name="product full name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="product slug")
     price = models.FloatField(default=0, verbose_name="product price")

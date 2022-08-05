@@ -8,7 +8,7 @@ class CartItemAdminView(admin.ModelAdmin):
     model = CartItem
 
     list_display = (
-        'name',
+        'product_name',
         'quantity',
         'price',
     )

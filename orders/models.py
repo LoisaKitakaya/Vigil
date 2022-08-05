@@ -4,7 +4,7 @@ from users.models import User
 # Create your models here.
 class CartItem(models.Model):
 
-    name = models.CharField(max_length=254, blank=False, verbose_name="product name")
+    product_name = models.CharField(max_length=254, blank=False, verbose_name="product name")
     price = models.FloatField(default=0, verbose_name="product price")
     thumbnail = models.URLField(max_length=254, blank=False, verbose_name="product thumbnail")
     quantity = models.IntegerField(default=1, verbose_name="number of items")

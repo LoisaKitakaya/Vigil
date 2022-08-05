@@ -1,8 +1,9 @@
+import json
+import string 
+import random 
 import graphene
 from graphene_django import DjangoObjectType
 from .models import CartItem, DeliveryOrder, PickupOrder
-import string 
-import random 
 
 class CartItemObject(DjangoObjectType):
 
@@ -42,7 +43,8 @@ class DeliveryMutation(graphene.Mutation):
         city = graphene.String(required=True)
         address = graphene.String(required=True)
         phone = graphene.String(required=True)
-        items = graphene.List(CartItemInput, required=True)
+        # items = graphene.List(CartItemInput, required=True)
+        items = graphene.String(required=True)
         total = graphene.Float(required=True)
 
     order = graphene.Field(DeliveryOrderObject)
@@ -69,6 +71,10 @@ class DeliveryMutation(graphene.Mutation):
 
             res = ''.join(random.choices(string.ascii_uppercase +  string.digits, k = N))
 
+            cart_items = json.loads(items)
+
+            print(cart_items)
+
             order = DeliveryOrder.objects.create(
                 user=user,
                 city=city,
@@ -78,7 +84,7 @@ class DeliveryMutation(graphene.Mutation):
                 total=total,
             )
 
-            for item in items:
+            for item in cart_items:
 
                 cart_item = CartItem(
                     name=item.name,

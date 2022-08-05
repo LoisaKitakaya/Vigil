@@ -8,7 +8,7 @@ class ProductCategoryAdminView(admin.ModelAdmin):
     model = ProductCategory
 
     list_display = (
-        'name',
+        'category_name',
         'description',
     )
 
@@ -17,7 +17,7 @@ class ProductCategoryAdminView(admin.ModelAdmin):
         'updated_date',
     )
 
-    prepopulated_fields = {"slug": ("name",)}
+    prepopulated_fields = {"slug": ("category_name",)}
 
 @admin.register(ProductInventory)
 class ProductInventoryAdminView(admin.ModelAdmin):
@@ -40,7 +40,7 @@ class ProductReviewAdminView(admin.ModelAdmin):
     model = ProductReview
 
     list_display = (
-        'name',
+        'item_name',
         'rating',
         'review',
     )
@@ -56,7 +56,7 @@ class ProductBrandAdminView(admin.ModelAdmin):
     model = ProductBrand
 
     list_display = (
-        'name',
+        'brand_name',
         'description',
     )
 
@@ -65,7 +65,7 @@ class ProductBrandAdminView(admin.ModelAdmin):
         'updated_date',
     )
 
-    prepopulated_fields = {"slug": ("name",)}
+    prepopulated_fields = {"slug": ("brand_name",)}
 
 @admin.register(Product)
 class ProductAdminView(admin.ModelAdmin):
@@ -73,7 +73,7 @@ class ProductAdminView(admin.ModelAdmin):
     model = Product
 
     list_display = (
-        'name',
+        'product_name',
         'price',
         'product_category',
     )
@@ -83,4 +83,4 @@ class ProductAdminView(admin.ModelAdmin):
         'updated_date',
     )
 
-    prepopulated_fields = {"slug": ("name",)}
+    prepopulated_fields = {"slug": ("product_name",)}
