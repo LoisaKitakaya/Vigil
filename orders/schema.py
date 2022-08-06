@@ -43,8 +43,7 @@ class DeliveryMutation(graphene.Mutation):
         city = graphene.String(required=True)
         address = graphene.String(required=True)
         phone = graphene.String(required=True)
-        # items = graphene.List(CartItemInput, required=True)
-        items = graphene.String(required=True)
+        items = graphene.JSONString(required=True)
         total = graphene.Float(required=True)
 
     order = graphene.Field(DeliveryOrderObject)
