@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'users',
     'products',
     'orders',
+    'core',
 
     # 3rd party apps
     'graphene_django',
@@ -82,7 +83,9 @@ ROOT_URLCONF = 'vigil_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
