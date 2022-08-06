@@ -47,7 +47,39 @@
 <!-- shop navigation -->
 
 <!-- all products -->
-<div class="container"></div>
+<div class="container products-container">
+  <!-- products -->
+
+  <!-- if -->
+  {% if all_products %}
+  <!-- if -->
+
+  <!-- for -->
+  {% for product in all_products %}
+  <!-- for -->
+
+  <div class="card mb-3">
+    <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.product_name }}</h5>
+      <p class="card-text">{{ product.price }}</p>
+      <p class="card-text">{{ product.description.html | safe }}</p>
+      <p class="card-text">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+
+  <!-- endfor -->
+  {% endfor %}
+  <!-- endfor -->
+
+  <!-- endif -->
+  {% endif %}
+  <!-- endif -->
+
+  <!-- products -->
+</div>
 <!-- all products -->
 
 {% endblock %}

@@ -7,6 +7,7 @@ Django==4.0.6
 django-cors-headers==3.13.0
 django-filter==22.1
 django-graphql-jwt==0.3.4
+django-quill-editor==0.1.40
 graphene==2.1.9
 graphene-django==2.15.0
 graphql-core==2.3.2

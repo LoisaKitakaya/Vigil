@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import User
 from cloudinary.models import CloudinaryField
+from django_quill.fields import QuillField
 
 # Create your models here.
 class ProductReview(models.Model):
@@ -65,8 +66,8 @@ class Product(models.Model):
     slug = models.SlugField(max_length=254, blank=False, verbose_name="product slug")
     price = models.FloatField(default=0, verbose_name="product price")
     thumbnail = CloudinaryField('thumbnail')
-    description = models.TextField(verbose_name="describe the product")
-    specifications = models.TextField(verbose_name="specifications of the product")
+    description = QuillField()
+    specifications = QuillField()
     slide_one = CloudinaryField('slide_one')
     slide_two = CloudinaryField('slide_two')
     slide_three = CloudinaryField('slide_three')
