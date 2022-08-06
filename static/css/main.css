@@ -31,3 +31,24 @@ html {
   display: flex !important;
   justify-content: space-between !important;
 }
+
+.banner {
+  min-height: 92vh !important;
+  background-image: url("../img/banner9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.banner-text {
+    width: 50%;
+    padding: 7rem 0 0 2rem;
+}
+
+.banner-text h1 {
+  font-size: 68px !important;
+}
+
+.banner-text h4 {
+  font-size: 32px !important;
+}

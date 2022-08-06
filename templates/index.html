@@ -107,11 +107,15 @@
     <!-- navigation -->
 
     <!-- body -->
+
     <div class="main-body">
+      <!-- template entry -->
       {% block body %}
       <!--  -->
       {% endblock %}
+      <!-- template entry -->
     </div>
+
     <!-- body -->
 
     <!-- footer -->
@@ -177,9 +181,7 @@
                 placeholder="e.g. myemail@example.com"
                 aria-label="Email"
               />
-              <button class="btn btn-danger" type="submit">
-                <i class="bi bi-search"></i>
-              </button>
+              <button class="btn btn-danger" type="submit">Subscribe</button>
             </div>
           </form>
         </div>
@@ -213,7 +215,7 @@
 
     <!-- back to top -->
     <span id="back-top"
-      ><i class="bi bi-arrow-up-square-fill fs-3 text-info"></i
+      ><i class="bi bi-arrow-up-square-fill fs-3 text-danger"></i
     ></span>
     <!-- back to top -->
   </body>
