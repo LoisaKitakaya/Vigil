@@ -21,3 +21,13 @@ html {
 #back-top:hover {
   cursor: pointer;
 }
+
+.contacts a,
+.copyright a {
+  text-decoration: none !important;
+}
+
+.footer {
+  display: flex !important;
+  justify-content: space-between !important;
+}
