@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductCategory, ProductInventory, ProductReview, ProductBrand, Product
+from .models import ProductTag, ProductCategory, ProductInventory, ProductReview, Product
 
 # Register your models here.
 @admin.register(ProductCategory)
@@ -50,13 +50,13 @@ class ProductReviewAdminView(admin.ModelAdmin):
         'updated_date',
     )
 
-@admin.register(ProductBrand)
-class ProductBrandAdminView(admin.ModelAdmin):
+@admin.register(ProductTag)
+class ProductTagsAdminView(admin.ModelAdmin):
 
-    model = ProductBrand
+    model = ProductTag
 
     list_display = (
-        'brand_name',
+        'tag_name',
         'description',
     )
 
@@ -65,7 +65,7 @@ class ProductBrandAdminView(admin.ModelAdmin):
         'updated_date',
     )
 
-    prepopulated_fields = {"slug": ("brand_name",)}
+    prepopulated_fields = {"slug": ("tag_name",)}
 
 @admin.register(Product)
 class ProductAdminView(admin.ModelAdmin):

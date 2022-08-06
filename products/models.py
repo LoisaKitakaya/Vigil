@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class ProductReview(models.Model):
@@ -19,7 +20,7 @@ class ProductReview(models.Model):
 
     def __str__(self) -> str:
         
-        return self.name
+        return self.item_name
 
 class ProductCategory(models.Model):
 
@@ -37,13 +38,13 @@ class ProductCategory(models.Model):
 
     def __str__(self) -> str:
         
-        return self.name
+        return self.category_name
 
-class ProductBrand(models.Model):
+class ProductTag(models.Model):
 
-    brand_name = models.CharField(max_length=254, blank=False, verbose_name="brand name")
-    slug = models.SlugField(max_length=254, blank=False, verbose_name="brand slug")
-    description = models.TextField(verbose_name="describe the brand")
+    tag_name = models.CharField(max_length=254, blank=False, verbose_name='tag name')
+    slug = models.SlugField(max_length=254, blank=False, verbose_name="tag slug")
+    description = models.TextField(verbose_name="describe the tag")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
@@ -51,11 +52,11 @@ class ProductBrand(models.Model):
 
         ordering = ["created_date"]
 
-        db_table = "Products Brand"
+        db_table = "Product Tags"
 
     def __str__(self) -> str:
         
-        return self.name
+        return self.tag_name
 
 class Product(models.Model):
 
@@ -63,14 +64,14 @@ class Product(models.Model):
     full_name = models.CharField(max_length=254, blank=False, verbose_name="product full name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="product slug")
     price = models.FloatField(default=0, verbose_name="product price")
-    thumbnail = models.URLField(max_length=254, blank=False, verbose_name="product thumbnail")
+    thumbnail = CloudinaryField('thumbnail')
     description = models.TextField(verbose_name="describe the product")
     specifications = models.TextField(verbose_name="specifications of the product")
-    slide_one = models.URLField(max_length=254, blank=False, verbose_name="product slide 1")
-    slide_two = models.URLField(max_length=254, blank=False, verbose_name="product slide 2")
-    slide_three = models.URLField(max_length=254, blank=False, verbose_name="product slide 3")
-    product_brand = models.ForeignKey(ProductBrand, on_delete=models.CASCADE)
+    slide_one = CloudinaryField('slide_one')
+    slide_two = CloudinaryField('slide_two')
+    slide_three = CloudinaryField('slide_three')
     product_category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    product_tags = models.ManyToManyField(ProductTag)
     product_review = models.ManyToManyField(ProductReview)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -83,7 +84,7 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         
-        return self.name
+        return self.product_name
 
 class ProductInventory(models.Model):
 

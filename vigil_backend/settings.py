@@ -19,6 +19,12 @@ from datetime import timedelta
 from corsheaders.defaults import default_methods
 from corsheaders.defaults import default_headers
 
+# cloudinary
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # force_text is removed from Django 4.0
 # to fix force_text import error
 
@@ -164,6 +170,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom user model
 
 AUTH_USER_MODEL = 'users.User'
+
+# cloudinary config
+
+cloudinary.config( 
+  cloud_name = "dit0fii18", 
+  api_key = "488158286488541", 
+  api_secret = "15AEbpxsXhNF828AaNQtQy7iOR0",
+  secure = True
+)
 
 # graphene-django settings
 
