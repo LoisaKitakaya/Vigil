@@ -1,0 +1,58 @@
+<!-- extend base template -->
+{% extends 'index.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- Document begins -->
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} All Products {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+
+{% block body %}
+
+<!-- shop navigation -->
+<div class="shop-nav">
+  <div class="container shop-nav-container">
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb fs-6">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home-page' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-gray" aria-current="page">
+          All products
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumbs -->
+
+    <!-- include filter buttons -->
+    {% include 'filter_buttons.html' %}
+    <!-- include filter buttons -->
+  </div>
+
+  <hr class="divider" />
+</div>
+<!-- shop navigation -->
+
+<!-- all products -->
+<div class="container"></div>
+<!-- all products -->
+
+{% endblock %}
+
+<!-- extend block -->
+
+<!-- body -->
+<!-- Document ends -->

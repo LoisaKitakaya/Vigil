@@ -39,6 +39,26 @@ html {
   padding: 3px 4px 2px 4px !important;
 }
 
+.divider {
+  border: 1px dashed black;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.text-gray {
+  color: #495057 !important;
+}
+
+.btn-outline-gray {
+  color: #495057 !important;
+  border-color: #495057 !important;
+}
+
+.btn-outline-gray:hover {
+  background-color: #495057 !important;
+  color: #f8f9fa !important;
+}
+
 /* global styling */
 
 /* home page styling */
@@ -65,3 +85,17 @@ html {
 }
 
 /* home page styling */
+
+/* all products page styling */
+
+.shop-nav-container {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center !important;
+}
+
+.breadcrumb {
+  margin: 1rem 0 !important;
+}
+
+/* all products page styling */
