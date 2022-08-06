@@ -1,3 +1,5 @@
+/* global styling */
+
 body,
 html {
   padding: 0 !important;
@@ -8,7 +10,7 @@ html {
 }
 
 .main-body {
-  min-height: 100vh !important;
+  min-height: 92vh !important;
 }
 
 #back-top {
@@ -30,19 +32,28 @@ html {
 .footer {
   display: flex !important;
   justify-content: space-between !important;
+  margin: 2rem auto !important;
 }
+
+.badge {
+  padding: 3px 4px 2px 4px !important;
+}
+
+/* global styling */
+
+/* home page styling */
 
 .banner {
   min-height: 92vh !important;
   background-image: url("../img/banner9.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 .banner-text {
-    width: 50%;
-    padding: 7rem 0 0 2rem;
+  width: 50%;
+  padding: 6rem 0;
 }
 
 .banner-text h1 {
@@ -52,3 +63,5 @@ html {
 .banner-text h4 {
   font-size: 32px !important;
 }
+
+/* home page styling */
