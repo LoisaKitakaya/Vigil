@@ -98,12 +98,19 @@ html {
   align-items: center !important;
 }
 
-.products-container .card {
-  width: 30% !important;
+.products-container {
+  display: flex !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.products-container button {
-  width: 100% !important;
+.products-container .card {
+  width: 30% !important;
+  box-shadow: 5px 5px 15px -5px #000000;
+}
+
+.no-product-alert {
+  margin-top: 4rem !important;
 }
 
 /* all products page styling */

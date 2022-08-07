@@ -62,21 +62,32 @@
   {% for product in all_products %}
   <!-- for -->
 
-  <div class="card mb-3">
-    <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="..." />
+  <div class="card mb-3 mt-3">
+    <img
+      class="card-img-top"
+      src="{{ product.thumbnail.url }}"
+      alt="{{ product.product_name }}"
+    />
     <div class="card-body">
       <h5 class="card-title ms-1">{{ product.product_name }}</h5>
-      <p class="card-text ms-1">KES {{ product.price | intcomma }}</p>
-      <button class="btn btn-sm btn-dark">
-        <!-- <i class="bi bi-cart-plus"></i> Add to cart -->
-        View product
-      </button>
+      <p class="card-text ms-1">
+        <strong>KES {{ product.price | intcomma }}</strong>
+      </p>
+      <a href="#" class="btn btn-sm btn-dark container-fluid">View product</a>
     </div>
   </div>
 
   <!-- endfor -->
   {% endfor %}
   <!-- endfor -->
+
+  <!-- else -->
+  {% else %}
+  <!-- else -->
+
+  <div class="alert alert-warning no-product-alert" role="alert">
+    <h1 class="text-center">No products in inventory.</h1>
+  </div>
 
   <!-- endif -->
   {% endif %}
