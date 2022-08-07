@@ -67,7 +67,6 @@ class Product(models.Model):
     price = models.FloatField(default=0, verbose_name="product price")
     thumbnail = CloudinaryField('thumbnail')
     description = QuillField()
-    specifications = QuillField()
     slide_one = CloudinaryField('slide_one')
     slide_two = CloudinaryField('slide_two')
     slide_three = CloudinaryField('slide_three')
