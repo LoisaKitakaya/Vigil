@@ -114,3 +114,35 @@ html {
 }
 
 /* all products page styling */
+
+/* single product page styling */
+
+.carousel,
+.summary-card,
+.details-card {
+  box-shadow: 5px 5px 15px -5px #000000 !important;
+  height: fit-content !important;
+}
+
+.carousel {
+  width: 65% !important;
+}
+
+.summary-card {
+  width: 35% !important;
+}
+
+.this_product-tags {
+  flex-wrap: wrap !important;
+}
+
+.section-one {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.tab-item:hover {
+  cursor: pointer !important;
+}
+
+/* single product page styling */

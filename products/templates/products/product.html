@@ -58,8 +58,246 @@
 <!-- shop navigation -->
 
 <!-- single product -->
-<div class="container products-container">
+<div class="container">
   <!-- product -->
+
+  <!-- section one -->
+  <div class="section-one mb-3 mt-3">
+    <!-- image slider -->
+    <div
+      id="carouselIndicators"
+      class="carousel slide carousel-dark me-3"
+      data-bs-ride="true"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselIndicators"
+          class="active"
+          aria-current="true"
+          data-bs-slide-to="0"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+          <img
+            class="d-block w-100 rounded"
+            src="{{ this_product.thumbnail.url }}"
+            alt="{{ this_product.product_name }}"
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img
+            class="d-block w-100 rounded"
+            src="{{ this_product.slide_one.url }}"
+            alt="{{ this_product.product_name }}"
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img
+            class="d-block w-100 rounded"
+            src="{{ this_product.slide_two.url }}"
+            alt="{{ this_product.product_name }}"
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img
+            class="d-block w-100 rounded"
+            src="{{ this_product.slide_three.url }}"
+            alt="{{ this_product.product_name }}"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- image slider -->
+
+    <!-- product summary -->
+    <div class="card summary-card ms-3">
+      <div class="card-body">
+        <h4 class="card-title mb-3">{{ this_product.full_name }}</h4>
+        <hr class="divider" />
+        <p class="card-text mt-3">
+          Category:
+          <span class="text-muted">{{ this_product.product_category }}</span>
+        </p>
+
+        <!-- tags -->
+        <div class="d-flex this_product-tags">
+          <p class="me-1">Tags:</p>
+          <!-- for -->
+          {% for tag in this_product.product_tags.all %}
+          <!-- for -->
+
+          <p class="card-text text-muted me-2">
+            <i class="bi bi-tags"></i> {{ tag.tag_name }}
+          </p>
+
+          <!-- endfor -->
+          {% endfor %}
+          <!-- endfor -->
+        </div>
+        <!-- tags -->
+        <h6 class="card-text mb-3 mt-3">
+          Price: KES {{ this_product.price | intcomma }}
+        </h6>
+        <hr class="divider" />
+        <button class="btn btn-sm btn-dark container-fluid mt-3">
+          <i class="bi bi-cart-plus"></i> Add to cart
+        </button>
+      </div>
+    </div>
+    <!-- product summary -->
+  </div>
+  <!-- section one -->
+
+  <br />
+
+  <!-- section two -->
+  <div class="section-two mb-3 mt-3">
+    <!-- details section -->
+    <div class="card details-card">
+      <div class="card-header">
+        <!-- details section navigation -->
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active tab-item" id="reviews-nav">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tab-item" id="description-nav">Description</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tab-item" id="write-review-nav">Write review</a>
+          </li>
+        </ul>
+        <!-- details section navigation -->
+      </div>
+      <!-- dynamic data -->
+
+      <!-- reviews -->
+      <div class="card-body" id="reviews">
+        <!-- for -->
+        {% for product_review in this_product.product_review.all %}
+        <!-- for -->
+
+        <div class="card text-bg-light">
+          <div class="card-body">
+            <p class="card-text">
+              <i class="bi bi-star-fill text-warning"></i>
+              {{ product_review.rating }} stars
+            </p>
+            <p class="card-text">{{ product_review.review }}</p>
+            <br />
+            <blockquote class="blockquote mb-0">
+              <footer class="blockquote-footer">
+                {{ product_review.user }}
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </div>
+      <!-- reviews -->
+
+      <!-- description -->
+      <div class="card-body" id="description">
+        <p class="card-text">{{ this_product.description.html | safe }}</p>
+      </div>
+      <!-- description -->
+
+      <!-- write review -->
+      <div class="card-body" id="write-review">
+        <form action="#" method="post">
+          <div class="mb-3">
+            <input
+              type="text"
+              name="productname"
+              class="form-control"
+              placeholder="product name"
+              value="{{ this_product.product_name }}"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <select
+              class="form-select"
+              aria-label="Default select"
+              name="rating"
+            >
+              <option value="5">5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 star</option>
+            </select>
+          </div>
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              name="productreview"
+              placeholder="Leave a comment here"
+              style="height: 100px"
+              required
+            ></textarea>
+            <label for="floatingTextarea">Comments</label>
+          </div>
+          <br />
+          <button
+            type="submit"
+            class="btn btn-secondary btn-sm container-fluid"
+          >
+            Submit review
+          </button>
+        </form>
+      </div>
+      <!-- write review -->
+
+      <!-- dynamic data -->
+    </div>
+    <!-- details section -->
+  </div>
+  <!-- section two -->
+
+  <br />
 
   <!-- product -->
 </div>

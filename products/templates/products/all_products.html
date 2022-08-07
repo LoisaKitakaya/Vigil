@@ -71,7 +71,7 @@
     <div class="card-body">
       <h5 class="card-title ms-1">{{ product.product_name }}</h5>
       <p class="card-text ms-1">
-        <strong>KES {{ product.price | intcomma }}</strong>
+        <strong>Price: KES {{ product.price | intcomma }}</strong>
       </p>
       <a
         href="{% url 'single-product' product.slug %}"
