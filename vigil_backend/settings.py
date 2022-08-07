@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
     'corsheaders',
     'django_quill',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # custom context processors
+                'products.context_processors.all_categories',
+                'products.context_processors.all_tags',
             ],
         },
     },

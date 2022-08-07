@@ -59,6 +59,10 @@ html {
   color: #f8f9fa !important;
 }
 
+.breadcrumb {
+  margin: 1rem 0 !important;
+}
+
 /* global styling */
 
 /* home page styling */
@@ -94,8 +98,12 @@ html {
   align-items: center !important;
 }
 
-.breadcrumb {
-  margin: 1rem 0 !important;
+.products-container .card {
+  width: 30% !important;
+}
+
+.products-container button {
+  width: 100% !important;
 }
 
 /* all products page styling */

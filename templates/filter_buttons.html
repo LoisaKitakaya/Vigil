@@ -6,11 +6,103 @@
   >
     <i class="bi bi-caret-left"></i> Back
   </button>
-  <button class="btn btn-sm btn-outline-gray ms-3">
+  <button
+    class="btn btn-sm btn-outline-gray ms-3"
+    data-bs-toggle="modal"
+    data-bs-target="#tagsModal"
+  >
     <i class="bi bi-tags"></i> Tags
   </button>
-  <button class="btn btn-sm btn-outline-gray ms-3">
-    <i class="bi bi-menu-button-wide"></i> Categories
+  <button
+    class="btn btn-sm btn-outline-gray ms-3"
+    data-bs-toggle="modal"
+    data-bs-target="#categoriesModal"
+  >
+    <i class="bi bi-window-stack"></i> Categories
   </button>
 </div>
 <!-- filters -->
+
+<!-- tags modal -->
+<div
+  class="modal fade"
+  id="tagsModal"
+  tabindex="-1"
+  aria-labelledby="tagsModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Tags</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- for -->
+        {% for tag in all_tags %}
+        <!-- for -->
+
+        <a href="#" class="btn btn-sm btn-outline-gray mb-3"
+          >{{ tag.tag_name }}</a
+        >
+
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <p class="text-center text-muted">
+          Use the above tags to filter products
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tags modal -->
+
+<!-- categories modal -->
+<div
+  class="modal fade"
+  id="categoriesModal"
+  tabindex="-1"
+  aria-labelledby="categoriesModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Categories</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- for -->
+        {% for category in all_categories %}
+        <!-- for -->
+
+        <a href="#" class="btn btn-sm btn-outline-gray mb-3"
+          >{{ category.category_name }}</a
+        >
+
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <p class="text-center text-muted">
+          Use the above categories to filter products
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- categories modal -->
