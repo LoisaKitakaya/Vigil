@@ -1,0 +1,77 @@
+<!-- extend base template -->
+{% extends 'index.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- load humanize -->
+{% load humanize %}
+<!-- load humanize -->
+
+<!-- Document begins -->
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Product {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+
+{% block body %}
+
+<!-- if -->
+{% if this_product %}
+<!-- if -->
+
+<!-- shop navigation -->
+<div class="shop-nav">
+  <div class="container shop-nav-container">
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb fs-6">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home-page' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'all-products' %}">All Products</a>
+        </li>
+        <li class="breadcrumb-item active text-gray" aria-current="page">
+          {{ this_product.product_name }}
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumbs -->
+
+    <!-- include filter buttons -->
+    {% include 'filter_buttons.html' %}
+    <!-- include filter buttons -->
+  </div>
+
+  <hr class="divider" />
+</div>
+<!-- shop navigation -->
+
+<!-- single product -->
+<div class="container products-container">
+  <!-- product -->
+
+  <!-- product -->
+</div>
+<!-- single product -->
+
+<!-- endif -->
+{% endif %}
+<!-- endif -->
+
+{% endblock %}
+
+<!-- extend block -->
+
+<!-- body -->
+<!-- Document ends -->

@@ -73,7 +73,11 @@
       <p class="card-text ms-1">
         <strong>KES {{ product.price | intcomma }}</strong>
       </p>
-      <a href="#" class="btn btn-sm btn-dark container-fluid">View product</a>
+      <a
+        href="{% url 'single-product' product.slug %}"
+        class="btn btn-sm btn-dark container-fluid"
+        >View product</a
+      >
     </div>
   </div>
 

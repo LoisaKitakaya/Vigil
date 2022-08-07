@@ -11,3 +11,13 @@ def all_products(request):
     }
 
     return render(request, 'products/all_products.html', context)
+
+def single_product(request, slug):
+
+    product = Product.objects.get(slug=slug)
+
+    context = {
+        'this_product': product,
+    }
+
+    return render(request, 'products/product.html', context)
