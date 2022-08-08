@@ -55,7 +55,11 @@
   <!-- form -->
 
   <div class="card form-card mt-3">
-    <form class="card-body">
+    <form class="card-body" method="POST" action="{% url 'login-user' %}">
+      <!-- csrf & form -->
+      {% csrf_token %}
+      <!-- csrf & form -->
+
       <div class="form-floating mb-3">
         <input
           type="text"
