@@ -14,7 +14,7 @@
 <!-- title -->
 
 <!-- extend block -->
-{% block title %} Categories {% endblock %}
+{% block title %} Search results {% endblock %}
 <!-- extend block -->
 
 <!-- title -->
@@ -38,7 +38,7 @@
           <a href="{% url 'all-products' %}">All Products</a>
         </li>
         <li class="breadcrumb-item active text-gray" aria-current="page">
-          {{ category }}
+          {{ query_name }}
         </li>
       </ol>
     </nav>
@@ -58,11 +58,11 @@
   <!-- products -->
 
   <!-- if -->
-  {% if this_category %}
+  {% if query_results %}
   <!-- if -->
 
   <!-- for -->
-  {% for product in this_category %}
+  {% for product in query_results %}
   <!-- for -->
 
   <div class="card mb-3 mt-3">
@@ -73,11 +73,7 @@
     />
     <div class="card-body">
       <h5 class="card-title ms-1">{{ product.product_name }}</h5>
-      <p class="card-text mt-3 ms-1">
-        Category:
-        <span class="text-muted">{{ product.product_category }}</span>
-      </p>
-      <p class="card-text ms-1 mt-3">
+      <p class="card-text ms-1">
         <strong>Price: KES {{ product.price | intcomma }}</strong>
       </p>
       <a
@@ -100,7 +96,7 @@
     class="alert alert-warning no-product-alert container-fluid"
     role="alert"
   >
-    <h1 class="text-center">No products in inventory.</h1>
+    <h1 class="text-center">Products that match your query don't exits.</h1>
   </div>
 
   <!-- endif -->

@@ -87,7 +87,15 @@
               >
             </li>
           </ul>
-          <form class="d-flex" role="search">
+          <form
+            class="d-flex"
+            role="search"
+            method="GET"
+            action="{% url 'query-product' %}"
+          >
+            <!-- csrf & form -->
+            {% csrf_token %}
+            <!-- csrf & form -->
             <div class="input-group">
               <input
                 class="form-control"
