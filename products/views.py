@@ -62,8 +62,7 @@ def search_filter(request):
             query_result = Product.objects.filter(
                 Q(product_name__icontains=query) | 
                 Q(full_name__icontains=query) | 
-                Q(product_category__category_name__icontains=query) | 
-                Q(product_tags__tag_name__icontains=query)
+                Q(product_category__category_name__icontains=query)
             )
 
         except query_result.DoesNotExist:
