@@ -1,0 +1,136 @@
+<!-- extend base template -->
+{% extends 'index.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- load humanize -->
+{% load humanize %}
+<!-- load humanize -->
+
+<!-- Document begins -->
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Registration {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+
+{% block body %}
+
+<!-- shop navigation -->
+<div class="shop-nav">
+  <div class="container shop-nav-container">
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb fs-6">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home-page' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-gray" aria-current="page">
+          Create account
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumbs -->
+
+    <!-- include filter buttons -->
+    {% include 'filter_buttons.html' %}
+    <!-- include filter buttons -->
+  </div>
+
+  <hr class="divider" />
+</div>
+<!-- shop navigation -->
+
+<!-- registration -->
+<div class="container">
+  <!-- form -->
+
+  <div class="card form-card mt-3">
+    <form class="card-body" method="POST" action="{% url 'register-account' %}">
+      <!-- csrf & form -->
+      {% csrf_token %}
+      <!-- csrf & form -->
+
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          name="username"
+          class="form-control"
+          placeholder="e.g. JohnDoe"
+          required
+        />
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          name="email"
+          class="form-control"
+          placeholder="name@example.com"
+          required
+        />
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          name="password1"
+          class="form-control"
+          placeholder="************"
+          required
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          name="password2"
+          class="form-control"
+          placeholder="************"
+          required
+        />
+        <label for="floatingPassword">Confirm password</label>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-secondary container-fluid">
+        Register account
+      </button>
+      <br />
+      <br />
+      <div class="form-text text-center">
+        <em>
+          We'll never share your information with anyone else. Your privacy is
+          our priority.
+        </em>
+      </div>
+    </form>
+  </div>
+
+  <br />
+
+  <p class="text-center fs-5">
+    If you already have an account,
+    <a href="{% url 'login-user' %}">login</a> here.
+  </p>
+
+  <!-- form -->
+</div>
+<!-- registration -->
+
+<br />
+
+{% endblock %}
+
+<!-- extend block -->
+
+<!-- body -->
+<!-- Document ends -->

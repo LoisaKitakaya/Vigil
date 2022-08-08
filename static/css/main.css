@@ -67,7 +67,7 @@ html {
   position: fixed !important;
   margin: 1.5rem 1rem;
   bottom: 0;
-  right: 37.75%;
+  right: 38%;
   z-index: 100;
   box-shadow: 5px 5px 15px -5px #000000 !important;
   animation: bounceIn 500ms linear;
@@ -156,3 +156,14 @@ html {
 }
 
 /* single product page styling */
+
+/* authentication pages */
+
+.form-card {
+  width: 50% !important;
+  margin: auto;
+  padding: 2rem 1rem;
+  box-shadow: 5px 5px 15px -5px #000000 !important;
+}
+
+/* authentication pages */
