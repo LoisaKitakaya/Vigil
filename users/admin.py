@@ -11,7 +11,6 @@ class NewsletterSubscriptionAdminView(admin.ModelAdmin):
     model = NewsletterSubscription
 
     list_display = (
-        'user',
         'email',
     )
 

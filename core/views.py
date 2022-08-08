@@ -1,17 +1,20 @@
 from django.shortcuts import render, redirect
-# from users.models import NewsletterSubscription
+from django.contrib import messages
+from users.models import NewsletterSubscription
 
 # Create your views here.
 def home(request):
 
     return render(request, 'core/home.html')
 
-# def subscribe(request):
+def subscribe(request):
 
-#     if request.method == 'POST':
+    if request.method == 'POST':
 
-#         submitted_email = request.POST['newsletter']
+        submitted_email = request.POST['newsletter']
 
-#         current_user = request.user
+        NewsletterSubscription.objects.create(email=submitted_email)
 
-#         NewsletterSubscription.objects.create(user=current_user, email=submitted_email)
+        return redirect('subscribe')
+
+    return render(request, 'core/subscribe_success.html')

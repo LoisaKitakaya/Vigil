@@ -15,7 +15,6 @@ class User(AbstractUser):
 
 class NewsletterSubscription(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="newsletter subscriber")
     email = models.EmailField(blank=False, max_length=254, verbose_name="subscription email", unique=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)

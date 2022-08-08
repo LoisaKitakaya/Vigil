@@ -172,7 +172,15 @@
         <div class="footer-item">
           <h4>Newsletter</h4>
           <p>Subscribe to get updates about our products and offers</p>
-          <form class="d-flex" role="search">
+          <form
+            class="d-flex"
+            role="search"
+            method="POST"
+            action="{% url 'subscribe' %}"
+          >
+            <!-- csrf & form -->
+            {% csrf_token %}
+            <!-- csrf & form -->
             <div class="input-group">
               <input
                 class="form-control"
