@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
-from .models import Product
+from django.contrib import messages
+from .models import Product, ProductReview
 
 # Create your views here.
 
@@ -17,6 +18,29 @@ def all_products(request):
 
 # single product view
 def single_product(request, slug):
+
+    if request.method == 'POST':
+
+        user = request.user
+
+        item_name = request.POST['productname']
+
+        rating = request.POST['rating']
+
+        review = request.POST['productreview']
+
+        user_review = ProductReview.objects.create(
+            user=user,
+            item_name=item_name,
+            rating=rating,
+            review=review
+        )
+
+        product = Product.objects.get(slug=slug)
+
+        product.product_review.add(user_review)
+
+        messages.success(request, 'Your review has been posted.')
 
     product = Product.objects.get(slug=slug)
 

@@ -217,7 +217,7 @@
         {% for product_review in this_product.product_review.all %}
         <!-- for -->
 
-        <div class="card text-bg-light">
+        <div class="card text-bg-light mb-3">
           <div class="card-body">
             <p class="card-text">
               <i class="bi bi-star-fill text-warning"></i>
@@ -248,7 +248,14 @@
 
       <!-- write review -->
       <div class="card-body" id="write-review">
-        <form action="#" method="post">
+        <form
+          action="{% url 'single-product' this_product.slug %}"
+          method="POST"
+        >
+          <!-- csrf & form -->
+          {% csrf_token %}
+          <!-- csrf & form -->
+
           <div class="mb-3">
             <input
               type="text"
