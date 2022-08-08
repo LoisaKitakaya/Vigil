@@ -14,7 +14,7 @@
 <!-- title -->
 
 <!-- extend block -->
-{% block title %} All Products {% endblock %}
+{% block title %} Categories {% endblock %}
 <!-- extend block -->
 
 <!-- title -->
@@ -34,8 +34,11 @@
         <li class="breadcrumb-item">
           <a href="{% url 'home-page' %}">Home</a>
         </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'all-products' %}">All Products</a>
+        </li>
         <li class="breadcrumb-item active text-gray" aria-current="page">
-          All products
+          Tag filter
         </li>
       </ol>
     </nav>
@@ -55,11 +58,11 @@
   <!-- products -->
 
   <!-- if -->
-  {% if all_products %}
+  {% if this_tag %}
   <!-- if -->
 
   <!-- for -->
-  {% for product in all_products %}
+  {% for product in this_tag %}
   <!-- for -->
 
   <div class="card mb-3 mt-3">
@@ -70,7 +73,25 @@
     />
     <div class="card-body">
       <h5 class="card-title ms-1">{{ product.product_name }}</h5>
-      <p class="card-text ms-1">
+
+      <!-- tags -->
+      <div class="d-flex this_product-tags">
+        <p class="me-1">Tags:</p>
+        <!-- for -->
+        {% for tag in product.product_tags.all %}
+        <!-- for -->
+
+        <p class="card-text text-muted me-2">
+          <i class="bi bi-tags"></i> {{ tag.tag_name }}
+        </p>
+
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </div>
+      <!-- tags -->
+
+      <p class="card-text ms-1 mt-3">
         <strong>Price: KES {{ product.price | intcomma }}</strong>
       </p>
       <a

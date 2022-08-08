@@ -1,9 +1,6 @@
 <!-- filters -->
 <div class="filter-buttons">
-  <button
-    class="btn btn-sm btn-dark ms-3"
-    onclick="window.history.back()"
-  >
+  <button class="btn btn-sm btn-dark ms-3" onclick="window.history.back()">
     <i class="bi bi-caret-left"></i> Back
   </button>
   <button
@@ -47,7 +44,9 @@
         {% for tag in all_tags %}
         <!-- for -->
 
-        <a href="#" class="btn btn-sm btn-outline-gray me-2 mb-2"
+        <a
+          href="{% url 'tag-filter' tag.slug %}"
+          class="btn btn-sm btn-outline-gray me-2 mb-2"
           >{{ tag.tag_name }}</a
         >
 
@@ -89,7 +88,9 @@
         {% for category in all_categories %}
         <!-- for -->
 
-        <a href="#" class="btn btn-sm btn-outline-gray me-2 mb-2"
+        <a
+          href="{% url 'category-filter' category.slug %}"
+          class="btn btn-sm btn-outline-gray me-2 mb-2"
           >{{ category.category_name }}</a
         >
 
