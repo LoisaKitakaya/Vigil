@@ -106,6 +106,7 @@ TEMPLATES = [
                 # custom context processors
                 'products.context_processors.all_categories',
                 'products.context_processors.all_tags',
+                'cart.context_processors.cart',
             ],
         },
     },
