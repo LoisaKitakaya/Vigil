@@ -184,6 +184,12 @@ AUTH_USER_MODEL = 'users.User'
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
+# default redirect routes
+
+LOGIN_URL = '/accounts/sign_in/'
+LOGIN_REDIRECT_URL = '/products/'
+LOGOUT_REDIRECT_URL = '/'
+
 # cloudinary config
 
 cloudinary.config( 
