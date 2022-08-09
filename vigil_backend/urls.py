@@ -14,6 +14,7 @@ urlpatterns = [
     path('', include('core.urls')),
     path('products/', include('products.urls')),
     path('accounts/', include('users.urls')),
+    path('cart/', include('cart.urls')),
 ]
 
 admin.site.site_header = 'Vigil Admin Panel'

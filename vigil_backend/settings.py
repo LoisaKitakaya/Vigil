@@ -181,7 +181,7 @@ AUTH_USER_MODEL = 'users.User'
 
 # cart sessions
 
-SESSION_COOKIE_AGE = timedelta(days=7)
+SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
 # cloudinary config

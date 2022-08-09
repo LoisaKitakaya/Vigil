@@ -179,7 +179,12 @@
           Price: KES {{ this_product.price | intcomma }}
         </h6>
         <hr class="divider" />
-        <button class="btn btn-sm btn-dark container-fluid mt-3">
+        <button
+          class="btn btn-sm btn-dark container-fluid mt-3"
+          hx-get="{% url 'add-product' this_product.id %}"
+          hx-target="#cart-btn"
+          hx-swap="outerHTML"
+        >
           <i class="bi bi-cart-plus"></i> Add to cart
         </button>
       </div>

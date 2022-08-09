@@ -80,12 +80,9 @@
                 ><i class="bi bi-gear"></i> Dashboard</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#"
-                ><i class="bi bi-cart-check"></i> Cart
-                <span class="badge text-bg-warning">4</span></a
-              >
-            </li>
+            <!-- include cart menu -->
+            {% include 'cart/cart_menu.html' %}
+            <!-- include cart menu -->
           </ul>
           <form
             class="d-flex"
@@ -237,6 +234,15 @@
     ></a>
     <!-- back to top -->
   </body>
+
+  <!-- htmx -->
+  <script
+    src="https://unpkg.com/htmx.org@1.8.0"
+    integrity="sha384-cZuAZ+ZbwkNRnrKi05G/fjBX+azI9DNOkNYysZ0I/X5ZFgsmMiBXgDZof30F5ofc"
+    crossorigin="anonymous"
+  ></script>
+  <!-- htmx -->
+
   <!-- custom js scripts -->
   <script src="{% static 'js/main.js' %}"></script>
   <!-- custom js scripts -->
