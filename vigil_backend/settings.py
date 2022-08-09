@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'core',
+    'cart',
 
     # 3rd party apps
     'graphene_django',
@@ -176,6 +177,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom user model
 
 AUTH_USER_MODEL = 'users.User'
+
+# cart sessions
+
+SESSION_COOKIE_AGE = timedelta(days=7)
+CART_SESSION_ID = 'cart'
 
 # cloudinary config
 
