@@ -1,0 +1,144 @@
+<!-- extend base template -->
+{% extends 'index.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- load humanize -->
+{% load humanize %}
+<!-- load humanize -->
+
+<!-- Document begins -->
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Cart {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+
+{% block body %}
+
+<!-- shop navigation -->
+<div class="shop-nav">
+  <div class="container shop-nav-container">
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb fs-6">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home-page' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-gray" aria-current="page">
+          Cart
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumbs -->
+
+    <!-- include filter buttons -->
+    {% include 'filter_buttons.html' %}
+    <!-- include filter buttons -->
+  </div>
+
+  <hr class="divider" />
+</div>
+<!-- shop navigation -->
+
+<!-- cart container -->
+<div class="container d-flex justify-content-between">
+  <!-- table -->
+  <div class="card text-bg-light table-card mt-3 me-3">
+    <table class="table table-hover table-striped">
+      <caption>
+        <button class="btn btn-sm btn-danger ms-3 mt-3 me-3">
+          <i class="bi bi-cart-x"></i> Clear cart
+        </button>
+      </caption>
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <!-- for -->
+        {% for item in cart %}
+        <!-- for -->
+
+        <tr class="text-center">
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            <a
+              href="{% url 'single-product' item.product.slug %}"
+              data-bs-toggle="popover"
+              data-bs-trigger="hover focus"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-popover"
+              data-bs-html="true"
+              data-bs-content="<img src='{{ item.product.thumbnail.url }}' class='img-fluid rounded'>"
+              >{{ item.product.product_name }}
+            </a>
+          </td>
+          <td>
+            <div class="d-flex align-items-center justify-content-center">
+              <a href="#" class="text-dark"
+                ><i class="bi bi-dash-square-fill"></i
+              ></a>
+              <span class="qty-display fs-5 pe-2 ps-2"
+                >{{ item.quantity }}</span
+              >
+              <a href="#" class="text-dark"
+                ><i class="bi bi-plus-square-fill"></i
+              ></a>
+            </div>
+          </td>
+          <td>KES {{ item.total_price | intcomma }}</td>
+        </tr>
+
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </tbody>
+    </table>
+  </div>
+  <!-- table -->
+
+  <!-- cart summary -->
+  <ul class="list-group mt-3 ms-3">
+    <li class="list-group-item">
+      <strong>Summary</strong>
+    </li>
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      Total:
+      <span>
+        <strong>KES {{ cart.get_total_cost | intcomma }}</strong>
+      </span>
+    </li>
+    <li class="list-group-item">
+      <a href="#" class="btn btn-sm btn-success container-fluid"
+        ><i class="bi bi-cart-check"></i> Checkout</a
+      >
+    </li>
+  </ul>
+  <!-- cart summary -->
+</div>
+<!-- cart container -->
+
+<br />
+
+{% endblock %}
+
+<!-- extend block -->
+
+<!-- body -->
+<!-- Document ends -->

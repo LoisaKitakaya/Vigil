@@ -181,6 +181,7 @@
         <hr class="divider" />
         <button
           class="btn btn-sm btn-dark container-fluid mt-3"
+          id="to-cart"
           hx-get="{% url 'add-product' this_product.id %}"
           hx-target="#cart-btn"
           hx-swap="outerHTML"

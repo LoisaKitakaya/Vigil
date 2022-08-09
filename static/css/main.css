@@ -73,6 +73,10 @@ html {
   animation: bounceIn 500ms linear;
 }
 
+.hide {
+  display: none !important;
+}
+
 /* global styling */
 
 /* home page styling */
@@ -167,3 +171,26 @@ html {
 }
 
 /* authentication pages */
+
+/* cart page */
+
+.list-group {
+  width: 35% !important;
+  box-shadow: 5px 5px 15px -5px #000000 !important;
+  height: fit-content !important;
+}
+
+.table-card {
+  width: 100% !important;
+  box-shadow: 5px 5px 15px -5px #000000 !important;
+  height: fit-content !important;
+}
+
+.custom-popover {
+  --bs-popover-max-width: 30%;
+  --bs-popover-border-color: var(--bs-primary);
+  --bs-popover-body-padding-x: 0.25rem;
+  --bs-popover-body-padding-y: 0.25rem;
+}
+
+/* cart page */
