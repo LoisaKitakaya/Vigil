@@ -250,14 +250,11 @@
     <li class="list-group-item">
       <strong>Summary</strong>
     </li>
-    <li
-      class="list-group-item d-flex justify-content-between align-items-center"
-    >
-      Total:
-      <span>
-        <strong>KES {{ cart.get_total_cost | intcomma }}</strong>
-      </span>
-    </li>
+
+    <!-- include checkout_total -->
+    {% include 'orders/checkout_total.html' %}
+    <!-- include checkout_total -->
+
     <li class="list-group-item">
       <a href="{% url 'cart' %}" class="btn btn-sm btn-success container-fluid"
         ><i class="bi bi-cart"></i> Modify cart</a

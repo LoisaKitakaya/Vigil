@@ -1,0 +1,10 @@
+<!-- load humanize -->
+{% load humanize %}
+<!-- load humanize -->
+
+<li class="list-group-item d-flex justify-content-between align-items-center">
+  Total:
+  <span id="totals-container">
+    <strong>KES {{ cart.get_total_cost | intcomma }}</strong>
+  </span>
+</li>

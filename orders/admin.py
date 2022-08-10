@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CartItem, DeliveryOrder, PickupOrder
+from .models import ShippingCost, CartItem, DeliveryOrder, PickupOrder
 
 # Register your models here.
 @admin.register(CartItem)
@@ -45,6 +45,19 @@ class PickupOrderAdminView(admin.ModelAdmin):
         'total',
         'approved',
         'fulfilled',
+    )
+
+    list_filter = (
+        'created_date',
+    )
+
+@admin.register(ShippingCost)
+class ShippingCostAdminView(admin.ModelAdmin):
+
+    model = ShippingCost
+
+    list_display = (
+        'shipping_cost',
     )
 
     list_filter = (
