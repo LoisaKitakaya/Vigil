@@ -14,13 +14,22 @@ def register(request):
 
         email = request.POST['email']
 
+        first_name = request.POST['firstname']
+
+        last_name = request.POST['lastname']
+
         password1 = request.POST['password1']
 
         password2 = request.POST['password2']
 
         if password1 == password2:
 
-            User.objects.create(username=username, email=email)
+            User.objects.create(
+                username=username,
+                email=email,
+                first_name=first_name,
+                last_name=last_name
+            )
 
             new_user = User.objects.get(email=email)
 

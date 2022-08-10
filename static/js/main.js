@@ -35,8 +35,6 @@ $(document).ready(() => {
   $("#to-cart").click(() => {
     $("#cart-success-alert").removeClass("hide");
     $("#cart-success-alert").addClass("show");
-
-    setTimeout(autoHideAlert(), 2000);
   });
 
   $("#close-alert").click(() => {
