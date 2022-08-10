@@ -238,7 +238,7 @@
       <!-- table -->
 
       <br />
-      <button type="submit" class="btn btn-warning container-fluid">
+      <button type="submit" class="btn btn-secondary container-fluid">
         <i class="bi bi-credit-card"></i> Proceed to payment
       </button>
     </form>
@@ -257,6 +257,11 @@
       <span>
         <strong>KES {{ cart.get_total_cost | intcomma }}</strong>
       </span>
+    </li>
+    <li class="list-group-item">
+      <a href="{% url 'cart' %}" class="btn btn-sm btn-success container-fluid"
+        ><i class="bi bi-cart"></i> Modify cart</a
+      >
     </li>
   </ul>
   <!-- cart summary -->
