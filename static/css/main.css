@@ -67,7 +67,7 @@ html {
   position: fixed !important;
   margin: 1.5rem 1rem;
   bottom: 0;
-  right: 40%;
+  right: 0;
   z-index: 100;
   box-shadow: 5px 5px 15px -5px #000000 !important;
   animation: bounceIn 500ms linear;
@@ -172,7 +172,7 @@ html {
 
 /* authentication pages */
 
-/* cart page */
+/* cart and checkout page */
 
 .list-group {
   width: 35% !important;
@@ -193,4 +193,4 @@ html {
   --bs-popover-body-padding-y: 0.25rem;
 }
 
-/* cart page */
+/* cart and checkout page */

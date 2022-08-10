@@ -1,0 +1,279 @@
+<!-- extend base template -->
+{% extends 'index.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- load humanize -->
+{% load humanize %}
+<!-- load humanize -->
+
+<!-- Document begins -->
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Checkout {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+
+{% block body %}
+
+<!-- shop navigation -->
+<div class="shop-nav">
+  <div class="container shop-nav-container">
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb fs-6">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home-page' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'cart' %}">Cart</a>
+        </li>
+        <li class="breadcrumb-item active text-gray" aria-current="page">
+          Checkout
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumbs -->
+
+    <!-- include filter buttons -->
+    {% include 'filter_buttons.html' %}
+    <!-- include filter buttons -->
+  </div>
+
+  <hr class="divider" />
+</div>
+<!-- shop navigation -->
+
+<!-- cart container -->
+<div class="container d-flex justify-content-between">
+  <!-- checkout form -->
+  <div class="card text-bg-light table-card mt-3 me-3">
+    <form action="#" method="POST" class="card-body">
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          name="email"
+          value="{{ request.user.email }}"
+          required
+          readonly
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="firstname"
+              value="{{ request.user.first_name }}"
+              required
+              readonly
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">First name</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="lastname"
+              value="{{ request.user.last_name }}"
+              required
+              readonly
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Last name</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          name="address1"
+          required
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Address</label>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="address2"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Address 2 (optional)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="postalcode"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Postal code (optional)</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="city"
+              required
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">City</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="place"
+              required
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput"
+              >Place (e.g. Estate, apartment, House, floor)</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          name="phone"
+          required
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Phone number</label>
+      </div>
+
+      <!-- table -->
+      <table class="table table-hover table-striped mt-3 mb-3">
+        <thead>
+          <tr>
+            <th scope="col">Delivery method</th>
+            <th scope="col">Estimated arrival</th>
+            <th scope="col">Shipping cost</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            data-bs-title="delivered to set location"
+          >
+            <td>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="deliverymethod"
+                  value="ship"
+                  id="ship"
+                />
+                <label class="form-check-label" for="ship"> Ship </label>
+              </div>
+            </td>
+            <td>2-4 days</td>
+            <td>KES 300</td>
+          </tr>
+          <tr
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            data-bs-title="picked up at our store"
+          >
+            <td>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="deliverymethod"
+                  value="pickup"
+                  id="pickup"
+                />
+                <label class="form-check-label" for="pickup"> Pick up </label>
+              </div>
+            </td>
+            <td>----</td>
+            <td>----</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- table -->
+
+      <br />
+      <button type="submit" class="btn btn-secondary container-fluid">
+        Create order
+      </button>
+    </form>
+  </div>
+  <!-- checkout form -->
+
+  <!-- cart summary -->
+  <ul class="list-group mt-3 ms-3">
+    <li class="list-group-item">
+      <strong>Summary</strong>
+    </li>
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      Total:
+      <span>
+        <strong>KES {{ cart.get_total_cost | intcomma }}</strong>
+      </span>
+    </li>
+    <li class="list-group-item">
+      <a href="#" class="btn btn-sm btn-success container-fluid"
+        ><i class="bi bi-cart-check"></i> Checkout</a
+      >
+    </li>
+  </ul>
+  <!-- cart summary -->
+</div>
+<!-- cart container -->
+
+<br />
+<br />
+
+{% endblock %}
+
+<!-- extend block -->
+
+<!-- body -->
+<!-- Document ends -->

@@ -7,14 +7,15 @@ urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
 
-    # graphql endpoint for analytics
-    path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True))),
-
     # page urls
     path('', include('core.urls')),
-    path('products/', include('products.urls')),
-    path('accounts/', include('users.urls')),
     path('cart/', include('cart.urls')),
+    path('accounts/', include('users.urls')),
+    path('checkout/', include('orders.urls')),
+    path('products/', include('products.urls')),
+
+    # graphql endpoint for analytics
+    path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
 
 admin.site.site_header = 'Vigil Admin Panel'
