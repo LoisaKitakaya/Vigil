@@ -72,3 +72,7 @@ class Cart(object):
         product_total_sum = sum(item['product'].price * item['quantity'] for item in self.cart.values())
 
         return product_total_sum + shipping_cost
+
+    def get_item(self, product_id):
+
+        return self.cart[str(product_id)]

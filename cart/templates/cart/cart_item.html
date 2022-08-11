@@ -1,0 +1,40 @@
+<!-- load humanize -->
+{% load humanize %}
+<!-- load humanize -->
+
+<tr id="cart-item-{{ item.product.id }}">
+  <td class="text-center">
+    <a
+      href="{% url 'single-product' item.product.slug %}"
+      data-bs-toggle="popover"
+      data-bs-trigger="hover focus"
+      data-bs-placement="top"
+      data-bs-custom-class="custom-popover"
+      data-bs-html="true"
+      data-bs-content="<img src='{{ item.product.thumbnail.url }}' class='img-fluid rounded'>"
+      >{{ item.product.product_name }}
+    </a>
+  </td>
+  <td class="text-center">
+    <div class="d-flex align-items-center justify-content-center">
+      <a
+        href="#"
+        class="text-dark"
+        hx-get="{% url 'update-cart' item.product.id 'decrement' %}"
+        hx-target="#cart-item-{{ item.product.id }}"
+        hx-swap="outerHTML"
+        ><i class="bi bi-dash-square-fill"></i
+      ></a>
+      <span class="qty-display fs-5 pe-2 ps-2">{{ item.quantity }}</span>
+      <a
+        href="#"
+        class="text-dark"
+        hx-get="{% url 'update-cart' item.product.id 'increment' %}"
+        hx-target="#cart-item-{{ item.product.id }}"
+        hx-swap="outerHTML"
+        ><i class="bi bi-plus-square-fill"></i
+      ></a>
+    </div>
+  </td>
+  <td class="text-center">KES {{ item.total_price | intcomma }}</td>
+</tr>
