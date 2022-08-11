@@ -206,6 +206,9 @@
                   name="deliverymethod"
                   value="ship"
                   id="ship"
+                  hx-get="{% url 'update-shipping-cost' 350 %}"
+                  hx-target="#checkout-total"
+                  hx-swap="innerHTML"
                 />
                 <label class="form-check-label" for="ship"> Ship </label>
               </div>
@@ -226,6 +229,9 @@
                   name="deliverymethod"
                   value="pickup"
                   id="pickup"
+                  hx-get="{% url 'update-shipping-cost' 0 %}"
+                  hx-target="#checkout-total"
+                  hx-swap="innerHTML"
                 />
                 <label class="form-check-label" for="pickup"> Pick up </label>
               </div>
@@ -269,7 +275,7 @@
         >{{ item.product.product_name }}
       </a>
       <span class="badge bg-warning rounded-pill text-dark">
-        <strong>{{ item.quantity }}</strong>
+        <strong>X {{ item.quantity }}</strong>
       </span>
     </li>
 
@@ -277,10 +283,16 @@
     {% endfor %}
     <!-- endfor -->
 
-    <!-- include checkout_total -->
-    {% include 'orders/checkout_total.html' %}
-    <!-- include checkout_total -->
-
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <strong>Total:</strong>
+      <span>
+        <!-- include checkout_total -->
+        {% include 'orders/checkout_total.html' %}
+        <!-- include checkout_total -->
+      </span>
+    </li>
     <li class="list-group-item">
       <a href="{% url 'cart' %}" class="btn btn-sm btn-success container-fluid"
         ><i class="bi bi-cart"></i> Modify cart</a

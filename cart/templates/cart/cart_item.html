@@ -12,7 +12,7 @@
       data-bs-custom-class="custom-popover"
       data-bs-html="true"
       data-bs-content="<img src='{{ item.product.thumbnail.url }}' class='img-fluid rounded'>"
-      >{{ item.product.product_name }}
+      ><strong>{{ item.product.product_name }}</strong>
     </a>
   </td>
   <td class="text-center">
@@ -36,5 +36,7 @@
       ></a>
     </div>
   </td>
-  <td class="text-center">KES {{ item.total_price | intcomma }}</td>
+  <td class="text-center">
+    <strong>KES {{ item.total_price | intcomma }}</strong>
+  </td>
 </tr>

@@ -11,10 +11,27 @@ def checkout_view(request):
     return render(request, 'orders/checkout.html')
 
 # adding shipping cost
-def add_shipping_cost(request, shipping_cost):
+def hx_update_shipping(request):
+
+    return render(request, 'orders/checkout_total.html')
+
+# adding shipping cost
+def update_shipping_cost(request, shipping_cost):
 
     cart = Cart(request)
 
-    cart.get_total_cost(shipping_cost)
+    net_cost = cart.get_total_cost(shipping_cost)
 
-    return render(request, 'orders/checkout_total.html')
+    print(net_cost)
+
+    new_total = {
+        'get_total_cost': net_cost,
+    }
+
+    response = render(request, 'orders/checkout_total.html', {'cart': new_total})
+
+    response['HX-Trigger'] = 'update-shipping-cost'
+
+    return response
+
+    

@@ -105,7 +105,8 @@ TEMPLATES = [
 
                 # custom context processors
                 'products.context_processors.all_categories',
-                'orders.context_processors.shipping_cost',
+                'orders.context_processors.delivery_cost',
+                'orders.context_processors.pickup_cost',
                 'products.context_processors.all_tags',
                 'cart.context_processors.cart',
             ],
