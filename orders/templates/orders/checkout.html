@@ -209,6 +209,7 @@
                   hx-get="{% url 'update-shipping-cost' delivery_cost.shipping_cost %}"
                   hx-target="#checkout-total"
                   hx-swap="innerHTML"
+                  required
                 />
                 <label class="form-check-label" for="ship"> Ship </label>
               </div>
@@ -234,6 +235,7 @@
                   hx-get="{% url 'update-shipping-cost' pickup_cost.shipping_cost %}"
                   hx-target="#checkout-total"
                   hx-swap="innerHTML"
+                  required
                 />
                 <label class="form-check-label" for="pickup"> Pick up </label>
               </div>
@@ -248,8 +250,8 @@
       <!-- table -->
 
       <br />
-      <button type="submit" class="btn btn-secondary container-fluid">
-        <i class="bi bi-credit-card"></i> Proceed to payment
+      <button type="submit" class="btn btn-success container-fluid">
+        <i class="bi bi-currency-exchange"></i> Proceed to payment
       </button>
     </form>
   </div>
@@ -296,11 +298,6 @@
         {% include 'orders/checkout_total.html' %}
         <!-- include checkout_total -->
       </span>
-    </li>
-    <li class="list-group-item">
-      <a href="{% url 'cart' %}" class="btn btn-sm btn-success container-fluid"
-        ><i class="bi bi-cart"></i> Modify cart</a
-      >
     </li>
   </ul>
   <!-- cart summary -->

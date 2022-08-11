@@ -4,6 +4,9 @@
 
 <tr id="cart-item-{{ item.product.id }}">
   <td class="text-center">
+    <i class="bi bi-box-seam"></i>
+  </td>
+  <td>
     <a
       href="{% url 'single-product' item.product.slug %}"
       data-bs-toggle="popover"

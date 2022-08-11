@@ -55,14 +55,10 @@
   <!-- table -->
   <div class="card text-bg-light table-card mt-3 me-3">
     <table class="table table-hover table-striped">
-      <caption>
-        <button class="btn btn-sm btn-danger ms-3 mt-3 me-3">
-          <i class="bi bi-cart-x"></i> Clear cart
-        </button>
-      </caption>
       <thead>
         <tr>
-          <th class="text-center" scope="col">Product</th>
+          <th class="text-center" scope="col"></th>
+          <th scope="col">Product</th>
           <th class="text-center" scope="col">Quantity</th>
           <th class="text-center" scope="col">Price</th>
         </tr>
@@ -109,6 +105,12 @@
     <!-- if -->
 
     <li class="list-group-item">
+      <button class="btn btn-sm btn-danger container-fluid">
+        <i class="bi bi-cart-x"></i> Clear cart
+      </button>
+    </li>
+
+    <li class="list-group-item">
       <a
         href="{% url 'checkout' %}"
         class="btn btn-sm btn-success container-fluid"
@@ -119,6 +121,12 @@
     <!-- else -->
     {% else %}
     <!-- else -->
+
+    <li class="list-group-item">
+      <button class="btn btn-sm btn-danger container-fluid disabled">
+        <i class="bi bi-cart-x"></i> Clear cart
+      </button>
+    </li>
 
     <li class="list-group-item">
       <a
