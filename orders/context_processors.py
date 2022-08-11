@@ -2,7 +2,7 @@ from .models import ShippingCost
 
 def delivery_cost(request):
 
-    cost = ShippingCost.objects.get(pk=1)
+    cost = ShippingCost.objects.filter(requires_payment=True).first()
 
     return {
         'delivery_cost': cost
@@ -10,7 +10,7 @@ def delivery_cost(request):
 
 def pickup_cost(request):
 
-    cost = ShippingCost.objects.get(pk=2)
+    cost = ShippingCost.objects.filter(requires_payment=False).first()
 
     return {
         'pickup_cost': cost

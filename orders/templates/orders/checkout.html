@@ -188,8 +188,8 @@
         <thead>
           <tr>
             <th scope="col">Delivery method</th>
-            <th scope="col">Estimated arrival</th>
-            <th scope="col">Shipping cost</th>
+            <th class="text-center" scope="col">Estimated arrival</th>
+            <th class="text-center" scope="col">Shipping cost</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -206,15 +206,17 @@
                   name="deliverymethod"
                   value="ship"
                   id="ship"
-                  hx-get="{% url 'update-shipping-cost' 350 %}"
+                  hx-get="{% url 'update-shipping-cost' delivery_cost.shipping_cost %}"
                   hx-target="#checkout-total"
                   hx-swap="innerHTML"
                 />
                 <label class="form-check-label" for="ship"> Ship </label>
               </div>
             </td>
-            <td>2-4 days</td>
-            <td>KES 300</td>
+            <td class="text-center">2-4 days after purchase</td>
+            <td class="text-center">
+              KES {{ delivery_cost.shipping_cost | intcomma }}
+            </td>
           </tr>
           <tr
             data-bs-toggle="tooltip"
@@ -229,15 +231,17 @@
                   name="deliverymethod"
                   value="pickup"
                   id="pickup"
-                  hx-get="{% url 'update-shipping-cost' 0 %}"
+                  hx-get="{% url 'update-shipping-cost' pickup_cost.shipping_cost %}"
                   hx-target="#checkout-total"
                   hx-swap="innerHTML"
                 />
                 <label class="form-check-label" for="pickup"> Pick up </label>
               </div>
             </td>
-            <td>----</td>
-            <td>----</td>
+            <td class="text-center">24 Hrs after purchase</td>
+            <td class="text-center">
+              KES {{ pickup_cost.shipping_cost | intcomma }}
+            </td>
           </tr>
         </tbody>
       </table>

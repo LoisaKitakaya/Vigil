@@ -70,11 +70,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- if -->
+            {% if current_user.is_authenticated %}
+            <!-- if -->
+
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{% url 'logout-user' %}"
+                ><i class="bi bi-box-arrow-left"></i> Sign out</a
+              >
+            </li>
+
+            <!-- else -->
+            {% else %}
+            <!-- else -->
+
             <li class="nav-item">
               <a class="nav-link text-light" href="{% url 'login-user' %}"
                 ><i class="bi bi-box-arrow-in-right"></i> Sign in</a
               >
             </li>
+
+            <!-- endif -->
+            {% endif %}
+            <!-- endif -->
+
             <li class="nav-item">
               <a class="nav-link text-light" href="#"
                 ><i class="bi bi-gear"></i> Dashboard</a

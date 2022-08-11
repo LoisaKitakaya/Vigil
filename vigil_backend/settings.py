@@ -107,6 +107,7 @@ TEMPLATES = [
                 'products.context_processors.all_categories',
                 'orders.context_processors.delivery_cost',
                 'orders.context_processors.pickup_cost',
+                'users.context_processors.current_user',
                 'products.context_processors.all_tags',
                 'cart.context_processors.cart',
             ],

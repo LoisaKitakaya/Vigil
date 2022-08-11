@@ -77,5 +77,5 @@ def logout_view(request):
 
     messages.success(request, 'Logged out successfully')
 
-    return redirect('all-products')
+    return redirect('home-page')
 
