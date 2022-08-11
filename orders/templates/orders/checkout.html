@@ -251,6 +251,32 @@
       <strong>Summary</strong>
     </li>
 
+    <!-- for -->
+    {% for item in cart %}
+    <!-- for -->
+
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <a
+        href="{% url 'single-product' item.product.slug %}"
+        data-bs-toggle="popover"
+        data-bs-trigger="hover focus"
+        data-bs-placement="left"
+        data-bs-custom-class="custom-popover"
+        data-bs-html="true"
+        data-bs-content="<img src='{{ item.product.thumbnail.url }}' class='img-fluid rounded'>"
+        >{{ item.product.product_name }}
+      </a>
+      <span class="badge bg-warning rounded-pill text-dark">
+        <strong>{{ item.quantity }}</strong>
+      </span>
+    </li>
+
+    <!-- endfor -->
+    {% endfor %}
+    <!-- endfor -->
+
     <!-- include checkout_total -->
     {% include 'orders/checkout_total.html' %}
     <!-- include checkout_total -->
