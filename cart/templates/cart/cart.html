@@ -54,6 +54,10 @@
 <div class="container d-flex justify-content-between">
   <!-- table -->
   <div class="card text-bg-light table-card mt-3 me-3">
+    <!-- if -->
+    {% if cart %}
+    <!-- if -->
+
     <table class="table table-hover table-striped">
       <thead>
         <tr>
@@ -77,6 +81,26 @@
         <!-- endfor -->
       </tbody>
     </table>
+
+    <!-- else -->
+    {% else %}
+    <!-- else -->
+
+    <div class="alert no-product-alert container" role="alert">
+      <h4 class="text-center">
+        Cart is empty. <br />
+        <br />
+        <a href="{% url 'all-products' %}" class="btn btn-sm btn-dark"
+          ><i class="bi bi-cart"></i> Start shopping.</a
+        >
+      </h4>
+      <br />
+      <br />
+    </div>
+
+    <!-- endif -->
+    {% endif %}
+    <!-- endif -->
   </div>
   <!-- table -->
 
@@ -105,9 +129,11 @@
     <!-- if -->
 
     <li class="list-group-item">
-      <button class="btn btn-sm btn-danger container-fluid">
-        <i class="bi bi-cart-x"></i> Clear cart
-      </button>
+      <form action="{% url 'clear-cart' %}" method="GET">
+        <button type="submit" class="btn btn-sm btn-danger container-fluid">
+          <i class="bi bi-cart-x"></i> Clear cart
+        </button>
+      </form>
     </li>
 
     <li class="list-group-item">

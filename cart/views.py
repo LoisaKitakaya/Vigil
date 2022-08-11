@@ -62,3 +62,14 @@ def update_cart(request, product_id, action):
     response['HX-Trigger'] = 'update-cart-menu'
 
     return response
+
+# clear cart
+def clear_cart(request):
+
+    cart = Cart(request)
+
+    if request.method == 'GET':
+
+        cart.clear_cart()
+
+    return render(request, 'cart/cart.html')

@@ -1,3 +1,4 @@
+from urllib import request
 from django.conf import settings
 from products.models import Product
 
@@ -76,3 +77,7 @@ class Cart(object):
     def get_item(self, product_id):
 
         return self.cart[str(product_id)]
+
+    def clear_cart(self):
+
+        del self.session[settings.CART_SESSION_ID]

@@ -8,4 +8,5 @@ urlpatterns = [
     path('hx_menu_cart/', views.hx_menu_cart, name="hx-menu-cart"),
     path('hx_cart_total', views.hx_cart_total, name="hx-cart-total"),
     path('update_cart/<int:product_id>/<str:action>/', views.update_cart, name="update-cart"),
+    path('clear_cart/', views.clear_cart, name="clear-cart"),
 ]
