@@ -41,11 +41,11 @@ class ProductReviewAdminView(admin.ModelAdmin):
 
     list_display = (
         'item_name',
-        'rating',
         'review',
     )
 
     list_filter = (
+        'rating',
         'created_date',
         'updated_date',
     )
@@ -75,10 +75,10 @@ class ProductAdminView(admin.ModelAdmin):
     list_display = (
         'product_name',
         'price',
-        'product_category',
     )
 
     list_filter = (
+        'product_category',
         'created_date',
         'updated_date',
     )

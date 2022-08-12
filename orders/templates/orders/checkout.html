@@ -58,11 +58,15 @@
   <!-- checkout form -->
   <div class="card text-bg-light table-card mt-3 me-3">
     <form action="#" method="POST" class="card-body">
+      <!-- csrf & form -->
+      {% csrf_token %}
+      <!-- csrf & form -->
+
       <div class="form-floating mb-3">
         <input
           type="email"
           name="email"
-          value="{{ request.user.email }}"
+          value="{{ current_user.email }}"
           required
           readonly
           class="form-control"
@@ -77,7 +81,7 @@
             <input
               type="text"
               name="firstname"
-              value="{{ request.user.first_name }}"
+              value="{{ current_user.first_name }}"
               required
               readonly
               class="form-control"
@@ -92,7 +96,7 @@
             <input
               type="text"
               name="lastname"
-              value="{{ request.user.last_name }}"
+              value="{{ current_user.last_name }}"
               required
               readonly
               class="form-control"
@@ -184,7 +188,7 @@
       </div>
 
       <!-- table -->
-      <table class="table table-hover table-striped mt-3 mb-3">
+      <table class="table table-hover mt-3 mb-3">
         <thead>
           <tr>
             <th scope="col">Delivery method</th>
@@ -192,7 +196,7 @@
             <th class="text-center" scope="col">Shipping cost</th>
           </tr>
         </thead>
-        <tbody class="table-group-divider">
+        <tbody>
           <tr
             data-bs-toggle="tooltip"
             data-bs-placement="right"

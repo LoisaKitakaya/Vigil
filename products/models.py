@@ -27,7 +27,7 @@ class ProductCategory(models.Model):
 
     category_name = models.CharField(max_length=254, blank=False, verbose_name="category name")
     slug = models.SlugField(max_length=254, blank=False, verbose_name="category slug")
-    description = models.TextField(verbose_name="describe the category")
+    description = models.TextField(verbose_name="category description")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
@@ -45,7 +45,7 @@ class ProductTag(models.Model):
 
     tag_name = models.CharField(max_length=254, blank=False, verbose_name='tag name')
     slug = models.SlugField(max_length=254, blank=False, verbose_name="tag slug")
-    description = models.TextField(verbose_name="describe the tag")
+    description = models.TextField(verbose_name="tag description")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
@@ -89,7 +89,7 @@ class Product(models.Model):
 class ProductInventory(models.Model):
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=0, verbose_name="quantity of product")
+    quantity = models.IntegerField(default=0, verbose_name="product quantity")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
