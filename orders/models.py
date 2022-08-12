@@ -14,7 +14,7 @@ class ShippingCost(models.Model):
 
         ordering = ['-created_date']
 
-        db_table = "Shipping Cost"
+        db_table = "Shipping Costs"
 
     def __str__(self) -> str:
         
@@ -59,3 +59,5 @@ class Order(models.Model):
     def __str__(self) -> str:
         
         return self.owner
+
+

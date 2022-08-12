@@ -11,7 +11,7 @@ class User(AbstractUser):
 
     class Meta:
 
-        db_table = "App Users"
+        db_table = "User Accounts"
 
 class NewsletterSubscription(models.Model):
 

@@ -17,7 +17,7 @@ class ProductReview(models.Model):
 
         ordering = ["-created_date"]
 
-        db_table = "Products Reviews"
+        db_table = "Product Reviews"
 
     def __str__(self) -> str:
         
@@ -35,7 +35,7 @@ class ProductCategory(models.Model):
 
         ordering = ["created_date"]
 
-        db_table = "Products Category"
+        db_table = "Product Categories"
 
     def __str__(self) -> str:
         
