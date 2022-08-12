@@ -2,6 +2,10 @@
 {% load humanize %}
 <!-- load humanize -->
 
+<!-- if -->
+{% if item %}
+<!-- if -->
+
 <tr id="cart-item-{{ item.product.id }}">
   <td class="text-center">
     <i class="bi bi-box-seam"></i>
@@ -43,3 +47,7 @@
     <strong>KES {{ item.total_price | intcomma }}</strong>
   </td>
 </tr>
+
+<!-- endif -->
+{% endif %}
+<!-- endif -->
