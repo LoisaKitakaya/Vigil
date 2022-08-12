@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ShippingCost, Order
+from .models import ShippingCost, Order, OrderItem
 
 # Register your models here.
 @admin.register(ShippingCost)
@@ -16,6 +16,23 @@ class ShippingCostAdminView(admin.ModelAdmin):
         'updated_date'
     )
 
+@admin.register(OrderItem)
+class OrderItemAdminView(admin.ModelAdmin):
+
+    model = OrderItem
+
+    list_display = (
+        'order',
+        'product',
+        'price',
+        'quantity',
+    )
+
+    list_filter = (
+        'created_date',
+        'updated_date'
+    )
+
 @admin.register(Order)
 class OrderAdminView(admin.ModelAdmin):
 
@@ -23,7 +40,9 @@ class OrderAdminView(admin.ModelAdmin):
 
     list_display = (
         'order_uic',
-        'paid_amount',
+        'owner',
+        'status',
+        'paid',
     )
 
     list_filter = (

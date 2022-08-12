@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User
+from products.models import Product
 
 # Create your models here.
 class ShippingCost(models.Model):
@@ -58,6 +59,23 @@ class Order(models.Model):
 
     def __str__(self) -> str:
         
-        return self.owner
+        return f'{str(self.owner)}_{self.order_uic}'
 
+class OrderItem(models.Model):
 
+    order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name="items", on_delete=models.CASCADE)
+    price = models.FloatField(default=0,verbose_name="product price")
+    quantity = models.IntegerField(default=1, verbose_name="product quantity")
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+
+        ordering = ['-created_date']
+
+        db_table = "Order Items"
+
+    def __str__(self) -> str:
+        
+        return self.order

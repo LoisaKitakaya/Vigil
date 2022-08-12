@@ -57,7 +57,7 @@
 <div class="container d-flex justify-content-between">
   <!-- checkout form -->
   <div class="card text-bg-light table-card mt-3 me-3">
-    <form action="#" method="POST" class="card-body">
+    <form action="{% url 'create-order' %}" method="POST" class="card-body">
       <!-- csrf & form -->
       {% csrf_token %}
       <!-- csrf & form -->
